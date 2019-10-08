@@ -1,0 +1,339 @@
+body{
+    font-family: 'Roboto';
+}
+.body-container{
+    margin-bottom: 10vh;
+    min-height:100%;
+    position:relative;
+}
+.navbar-brand img{
+    margin-left: 2vw;
+    width: 9vw;
+    height: 8vh;
+}
+.navbar{
+    margin-bottom: 10vh;
+    padding: 0;
+    padding-right: 2vw;
+}
+.nav-item a{
+    color: #1b6b99 !important;
+}
+.nav-item a:hover{
+    color: #000 !important;
+}
+header{
+    background: url('../images/wabi.svg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    height: 100vh;
+}
+.header-comp{
+    padding-top: 30vh;
+}
+.header-cars{
+    margin-bottom: 10vh;
+}
+.header-mercedes{
+    position: relative;
+    height:50vh;
+    width:35vw;
+    top: 6vh;
+    left: 27vw;
+}
+.header-range{
+    position: relative;
+    height:50vh;
+    width:35vw;
+    top: 8vh;
+    left: 27vw;
+}
+.header-logo{
+    width: 10vw;
+    height: 10vh;
+}
+.header-nav{
+    display: inline;
+}
+.header-nav img{
+    margin-right: 30vw;
+}
+.header-btns{
+    display: inline;
+    
+}
+.header-btns button{
+    width: 20vw;
+    height: 7vh;
+    margin-bottom: 2vh;
+    border-radius: 15px;
+}
+.header-search input{
+    margin-right: 1vw;
+}
+
+.header-search button{
+    color: #1b6b99;
+    border: #1b6b99 1px solid;
+}
+.header-search button:hover{
+    color: #fff;
+    background-color: #1b6b99;
+    border: #1b6b99 1px solid;
+}
+.search-label{
+    color: #1b6b99;
+}
+.pill-tab{
+    margin-left: 40vw;
+}
+.models{
+    margin-top: 10vh;
+}
+.models .nav-link{
+    margin-right: 1vw; 
+    margin-left: 2vw;
+}
+.models .active a{
+    color: #fff;
+}
+.models h3{
+    color: #99491B;
+}
+.recent-cars{
+    margin-top: 10vh;
+}
+.recent-cars h6{
+    color: #1b6b99;
+}
+.recent-cars h3{
+    color: #99491B;
+}
+
+.footer{
+    text-align: center !important;
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    padding: 1rem !important;
+    background-color: #1b6b99 !important;
+    margin-bottom: -5vw !important;
+}
+.footer h5{
+    color: #fff;
+}
+
+.car-detail{
+    margin-top: 15vh;
+    margin-left: 0vw;
+}
+.car-detail img{
+    width: 35vw; 
+    height: 30vh;
+}
+.detail-info{
+    margin-top: 10vh;
+}
+
+.similar-cars img{
+    width: 15vw; 
+    height: 25vh;
+}
+.item{
+    margin-left: 25vw !important;
+}
+.car-detail .data-thumb{
+    width: 5vw;
+    height: 30vh;
+}
+.car-list{
+    margin-top: 15vh !important;
+    padding: 2em;
+    right: 50%;
+    top: 0%;
+    transform: translateX(70%);
+}
+.car-list .card{
+    width: 55vw;
+    height: 25vh;
+    box-shadow: 3px 3px rgb(170, 170, 170);
+    margin-bottom: 5vh; 
+}
+.sidenav{
+    margin-top: 10vh !important;
+    position: fixed;
+    padding: 2em;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-150%);
+}
+.sidenav .card{
+    width: 25vw;
+    height: 200vh;
+}
+.side-by-side .sidenav{
+    width: 35%;
+    float: left;
+}
+.side-by-side .car-list{
+    width: 40%;
+    float: left;
+}
+.car-list .btn{
+    background-color: #1b6b99 !important;
+    border: #1b6b99 1px;
+    margin-left: 30vw;
+    margin-bottom: 3vh;
+}
+.car-list .dropdown-toggle::after {
+    display: none;
+}
+/* Remove default bullets */
+ul, #myUL {
+    list-style-type: none;
+  }
+  
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the caret/arrow */
+  .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+  }
+  
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+    content: "\25B6";
+    color: #1b6b99;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down::before {
+    transform: rotate(90deg);
+  }
+  
+  /* Hide the nested list */
+  .nested {
+    display: none;
+  }
+  
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+    display: block;
+  }
+
+
+  .category a{
+      color: #1b6b99;
+  }
+
+  .condition a{
+    color: #1b6b99;
+}
+.price-range button{
+    background-color: #1b6b99;
+    border: #1b6b99;
+    color: #fff;
+}
+.car-list img{
+    width: 10vw;
+    height: 20vh;
+}
+.card .fa, .fab{
+    padding-right: 2vw;
+    color: #1b6b99;
+}
+.fa-phone:hover{
+    color: blue;
+}
+.fa-whatsapp:hover{
+    color: green;
+}
+.fa-telegram:hover{
+    color: darkblue;
+}
+.fa-envelope:hover{
+    color: darkorange;
+}
+.card-body h5{
+    color: #1b6b99;
+}
+.car-list a{
+    color: #1b6b99;
+}
+
+
+
+
+
+@media (max-width: 978px){
+    .navbar-brand img{
+        margin-left: 2vw;
+        width: 19vw;
+        height: 4vh;
+    }
+    .header-btns button{
+        width: 20vw;
+        height: 10vh !important;
+    }
+    .header-logo{
+        width: 40vw;
+        height: 20vh;
+    }
+    .header-search input{
+        width: 40vw;
+        margin-right: 2vw;
+    }
+    .header-mercedes{
+        position: relative;
+        height:20vh;
+        width:35vw;
+        top: 19vh;
+        left: 28vw;
+    }
+    .header-range{
+        position: relative;
+        height:20vh;
+        width:35vw;
+        top: 21vh;
+        left: 28vw;
+    }
+    .footer{
+        margin-bottom: -30vh;
+    }
+    .sidenav{
+        display: none;
+    }
+    .car-list{
+        margin-left: 3vw;
+        transform: translateX(0%);
+    }
+    .car-list .card{
+        width: 80vw;
+        height: 40vh;
+    }
+    .car-list img{
+        width: 30vw !important;
+        height: 20vh;
+    }
+    .car-list .dropdown{
+        margin-left: 20vw;
+    }
+    .car-list .for-sale{
+        display: none;
+    }
+    .car-list h6{
+        font-size: 14px;
+    }
+    .car-list h5{
+        font-size: 17px;
+    }
+}
+}
