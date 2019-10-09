@@ -71,18 +71,27 @@ $id=$_GET['id'];
             
             <div class="car-detail col-sm-12">
                 <?php
-                    $stmt="SELECT * from car WHERE id=$id";
+                    $stmt="SELECT * from cars WHERE id=$id";
                     $result=mysqli_query($conn,$stmt);
                     while($row = mysqli_fetch_array($result)){
                         $time = strtotime($row['time_created']);
                         $myFormatForView = date("m/d/y g:i A", $time);
-                        $year=$row['Year'];
+                        $year=$row['year'];
                     
                 ?>
 
                 <center>
                 <?php
-                    echo '<h3>'.$row["Name"].' '.$row["Model"].'</h3>';
+                    $stmt2="SELECT * from car_name WHERE id=".$row['id'];
+                    $result2=mysqli_query($conn,$stmt2);
+                    while($row2 = mysqli_fetch_array($result2)){
+                        $stmt3="SELECT * from model WHERE id=".$row['model_id'];
+                        $result3=mysqli_query($conn,$stmt3);
+                        while($row3 = mysqli_fetch_array($result3)){
+                        echo '<h3>'.$row2["name"].' '.$row3["model"].'</h3>';
+                        $stmt4="SELECT * FROM image WHERE car_id =". $row['id'];
+                        $result4=mysqli_query($conn,$stmt4);
+                        while($row4 = mysqli_fetch_array($result4)){
                 ?>
                     <br><br><br>
                     <h4>Images</h4>
@@ -95,38 +104,38 @@ $id=$_GET['id'];
                             <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                                     
                                     <?php
-                                    echo '<li data-thumb="../../'.$row["image"].'">';
-                                    echo '<img src="../../'.$row["image"].'">';
+                                    echo '<li data-thumb="../../'.$row4["path"].'">';
+                                    echo '<img src="../../'.$row4["path"].'">';
                                     ?>
 
                                     
                                     <?php
-                                    echo '<li data-thumb="../../'.$row["image"].'">';
-                                    echo '<img src="../../'.$row["image"].'">';
+                                    echo '<li data-thumb="../../'.$row4["path"].'">';
+                                    echo '<img src="../../'.$row4["path"].'">';
                                     ?>
                                     
                                 
                                     <?php
-                                    echo '<li data-thumb="../../'.$row["image"].'">';
-                                    echo '<img src="../../'.$row["image"].'">';
+                                    echo '<li data-thumb="../../'.$row4["path"].'">';
+                                    echo '<img src="../../'.$row4["path"].'">';
                                     ?>
                                     
                                 
                                     <?php
-                                    echo '<li data-thumb="../../'.$row["image"].'">';
-                                    echo '<img src="../../'.$row["image"].'">';
+                                    echo '<li data-thumb="../../'.$row4["path"].'">';
+                                    echo '<img src="../../'.$row4["path"].'">';
                                     ?>
                                     
                                 
                                     <?php
-                                    echo '<li data-thumb="../../'.$row["image"].'">';
-                                    echo '<img src="../../'.$row["image"].'">';
+                                    echo '<li data-thumb="../../'.$row4["path"].'">';
+                                    echo '<img src="../../'.$row4["path"].'">';
                                     ?>
                                     
                                 
                                     <?php
-                                    echo '<li data-thumb="../../'.$row["image"].'">';
-                                    echo '<img src="../../'.$row["image"].'">';
+                                    echo '<li data-thumb="../../'.$row4["path"].'">';
+                                    echo '<img src="../../'.$row4["path"].'">';
                                     ?>
                                     
                                 
@@ -159,25 +168,40 @@ $id=$_GET['id'];
                         echo '<h5><strong>Color:</strong></h5>';
                         echo '</div>';
                         echo '<div class="col-sm-6">';
-                        $stmt = "SELECT * FROM detail WHERE id= $id";
-                        $result=mysqli_query($conn,$stmt);
-                        while($row = mysqli_fetch_array($result)){
-                        echo '<br><br>';
-                        echo "<h5>$year</h5>";
-                        echo "<h5>".$row['category']."</h5>";
-                        echo "<h5>".$row['origin']."</h5>";
-                        echo "<h5>".$row['mileage']."</h5>";
-                        echo "<h5>".$row['capacity']."</h5>";
-                        echo "<h5>".$row['power']."</h5>";
-                        echo "<h5>".$row['fuel']."</h5>";
-                        echo "<h5>".$row['fuel_consumption']."</h5>";
-                        echo "<h5>".$row['seat_no']."</h5>";
-                        echo "<h5>".$row['door_no']."</h5>";
-                        echo "<h5>".$row['transmission']."</h5>";
-                        echo "<h5>".$row['color']."</h5>";
+                        $stmt5="SELECT * FROM details WHERE id =". $row['details_id'];
+                        $result5=mysqli_query($conn,$stmt5);
+                        while($row5 = mysqli_fetch_array($result5)){
+                            $stmt6="SELECT * FROM category WHERE id =". $row5['category_id'];
+                            $result6=mysqli_query($conn,$stmt6);
+                            while($row6 = mysqli_fetch_array($result6)){
+                                $stmt7="SELECT * FROM fuel WHERE id =". $row5['fuel_id'];
+                                $result7=mysqli_query($conn,$stmt7);
+                                while($row7 = mysqli_fetch_array($result7)){
+                                    $stmt8="SELECT * FROM transmission WHERE id =". $row5['transmission_id'];
+                                    $result8=mysqli_query($conn,$stmt8);
+                                    while($row8 = mysqli_fetch_array($result8)){
+                                        echo '<br><br>';
+                                        echo "<h5>$year</h5>";
+                                        echo "<h5>".$row6['category']."</h5>";
+                                        echo "<h5>".$row5['origin']."</h5>";
+                                        echo "<h5>".$row5['mileage']."</h5>";
+                                        echo "<h5>".$row5['capacity']."</h5>";
+                                        echo "<h5>".$row5['power']."</h5>";
+                                        echo "<h5>".$row7['fuel']."</h5>";
+                                        echo "<h5>".$row5['fuel_consumption']."</h5>";
+                                        echo "<h5>".$row5['seat_no']."</h5>";
+                                        echo "<h5>".$row5['door_no']."</h5>";
+                                        echo "<h5>".$row8['transmission']."</h5>";
+                                        echo "<h5>".$row5['color']."</h5>";
                         }
                         echo '</div>';
                         echo '</div>';
+                    }
+                }
+            }
+        }
+    }
+}
                     ?>
                     <div class="contact col-sm-6">
                         <center>
@@ -191,38 +215,49 @@ $id=$_GET['id'];
                         <p>contact@wabi.com</p>
                     
                     </div>
-                </div>
+                </div><br><br>
 
                 <div class="similar">
                     <center>
                     <h4>Similar Cars</h4>
-                    </center>
+                    </center><br><br>
 
                     <div class="row col-sm-12 similar-cars">
 
                     <?php
-                        $stmt="SELECT * FROM car WHERE id=$id";
+                    $count=0;
+                        $stmt="SELECT * FROM cars WHERE id=$id";
                         $result=mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
-                            $year=$row['Year'];
+                            $year=$row['year'];
                         }
 
-                        $stmt="SELECT * FROM car WHERE Year BETWEEN $year-2 AND $year+2";
+                        $stmt="SELECT * FROM cars WHERE year BETWEEN $year-2 AND $year+2";
                         $result=mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
-                            $time = strtotime($row['time_created']);
-                            $myFormatForView = date("m/d/y g:i A", $time);
-                            echo '<a href="detail.php?id='.$row["id"].'">';
-                            echo '<div class="col-sm-3 col-xs-6">';
-                            echo '<img src="../../'.$row["image"].'" style="width: 15vw; height: 25vh;">';
-                            echo "<h3>". $row['Name']."</h3>";
-                            echo "<h6>".$myFormatForView."</h6>";
-                            echo "<h6> ".$row['Price']."Birr</h6> </a>";
-                            if($row['new']==0){echo "<p><strong>New</strong></p>";}
-                            else{echo "<p><strong>Used</strong></p>";}
-                            echo '</a>';
-                            echo '</div>';
+                            
+                            $stmt2="SELECT * FROM car_name WHERE id =". $row['name_id'];
+                            $result2= mysqli_query($conn,$stmt2);
+                            while($row2 = mysqli_fetch_array($result2)){
+                                $stmt3="SELECT * FROM image WHERE car_id =". $row['id'];
+                                $result3= mysqli_query($conn,$stmt3);
+                                while($row3 = mysqli_fetch_array($result3)){
+                                    echo '';
+                                    echo '<div class="col-sm-3">'; 
+                                    echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="../../'. $row3["path"].'" style="width: 15vw; height: 15vh;">';
+                                    echo "<h3>". $row2['name']."</h3>";
+                                    echo "<h6>".$myFormatForView."</h6>";
+                                    echo "<h6> ".$row['price']."Birr</h6> </a>";
+                                    if($row['new_or_used']==0){echo "<p><strong>New</strong></p>";}
+                                    else{echo "<p><strong>Used</strong></p>";}
+                                echo '</div>';
+                                $count++;
+                                if($count=3){
+                                    echo '<br><br>';
+                                }
                         }
+                    }
+                    }
 
                     ?>
 

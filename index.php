@@ -132,35 +132,40 @@
                     <div class="row">
                     <?php
                         $count=0;   
-                        $stmt= "SELECT * FROM car ORDER BY time_created desc LIMIT 8";
+                        $stmt= "SELECT * FROM cars ORDER BY time_created desc LIMIT 8";
                         $result= mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             $time = strtotime($row['time_created']);
                             $myFormatForView = date("m/d/y g:i A", $time);
-                    ?>
 
-
-                    
-                            <?php
-                                echo '';
-                                echo '<div class="col-sm-3">'; 
-                                echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="'. $row["image"].'" style="width: 15vw; height: 15vh;">';
-                                echo "<h3>". $row['Name']."</h3>";
-                                echo "<h6>".$myFormatForView."</h6>";
-                                echo "<h6> ".$row['Price']."Birr</h6> </a>";
-                                if($row['new']==0){echo "<p><strong>New</strong></p>";}
-                                else{echo "<p><strong>Used</strong></p>";}
-                            echo '</div>';
-                            $count++;
-                            if($count=3){
-                                echo '<br><br>';
+                                $stmt2="SELECT * FROM car_name WHERE id =". $row['name_id'];
+                                $result2= mysqli_query($conn,$stmt2);
+                                while($row2 = mysqli_fetch_array($result2)){
+                                    $stmt3="SELECT * FROM image WHERE car_id =". $row['id'];
+                                    $result3= mysqli_query($conn,$stmt3);
+                                    while($row3 = mysqli_fetch_array($result3)){
+                                        echo '';
+                                        echo '<div class="col-sm-3">'; 
+                                        echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="'. $row3["path"].'" style="width: 15vw; height: 15vh;">';
+                                        echo "<h3>". $row2['name']."</h3>";
+                                        echo "<h6>".$myFormatForView."</h6>";
+                                        echo "<h6> ".$row['price']."Birr</h6> </a>";
+                                        if($row['new_or_used']==0){echo "<p><strong>New</strong></p>";}
+                                        else{echo "<p><strong>Used</strong></p>";}
+                                    echo '</div>';
+                                    $count++;
+                                    if($count=3){
+                                        echo '<br><br>';
+                                    }
                             }
+                        }
+                    }
                             ?>
-                        <?php } ?>
+                        
                         
                     </div>
 
-                    <button class="btn btn-primary">View All</button>
+                    <a  href="assets/php/cars.php"><button class="btn btn-primary">View All</button></a>
                 </center>
 
             </div>

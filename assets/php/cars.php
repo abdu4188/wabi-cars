@@ -51,7 +51,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form class="form-inline header-search ">
-                                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control" type="search" placeholder="Search" aria-label="Search"><br>
                                 <button class="btn btn-outline-success " type="submit">Search</button>
                             </form><br>
 
@@ -121,7 +121,7 @@
 
                     <?php
 
-                        $stmt= "SELECT * FROM car ORDER BY time_created";
+                        $stmt= "SELECT * FROM cars ORDER BY time_created";
                         $result= mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             $time = strtotime($row['time_created']);
@@ -132,16 +132,25 @@
                         echo '<div class="card-body">';
                             echo '<div class="row">';
                                 echo '<div class="col-sm-4 col-6 ">';
-                                    
-                                    echo '<a href="detail.php?id='.$row["id"].'"><img src="../../'.$row['image'].'">';
+                                $stmt2= "SELECT * FROM image WHERE car_id=".$row['id'];
+                                $result2= mysqli_query($conn,$stmt2);
+                                while($row2 = mysqli_fetch_array($result2)){
+                                    $stmt3= "SELECT * FROM car_name WHERE id=".$row['name_id'];
+                                    $result3= mysqli_query($conn,$stmt3);
+                                    while($row3 = mysqli_fetch_array($result3)){
+                                        $stmt4= "SELECT * FROM model WHERE id=".$row['model_id'];
+                                        $result4= mysqli_query($conn,$stmt4);
+                                        while($row4 = mysqli_fetch_array($result4)){
+                                        
+                                    echo '<a href="detail.php?id='.$row["id"].'"><img src="../../'.$row2['path'].'">';
                                     
                                 echo '</div>';
                                 echo '<div class="col-sm-4 col-6 ">';
                                      
-                                    echo '<h5><strong>'.$row['Name'].' '.$row['Model'].'</strong></h5>'; 
+                                    echo '<h5><strong>'.$row3['name'].' '.$row4['model'].'</strong></h5>'; 
                                     echo '<h6>Used - Manual shift - 2016</h6>';
                                     echo '<p>'.$myFormatForView.'</p>';
-                                    echo '<p>'.$row['Price'].' Birr</p></a>';
+                                    echo '<p>'.$row['price'].' Birr</p></a>';
                                       
                                 echo '</div>';
 
@@ -157,6 +166,9 @@
                                 echo '</div>';
                     
                 }
+            }
+        }
+    }
                 ?>
 
                     
