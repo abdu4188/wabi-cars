@@ -1,0 +1,49 @@
+[
+{"type":"header","version":"4.8.5","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"wabi"},
+{"type":"table","name":"cars","database":"wabi","data":
+[
+{"id":"1","name_id":"1","model_id":"1","details_id":"1","year":"2017","price":"2,500,000 ","new_or_used":"0","time_created":"2019-10-08 16:58:02","availability":"1","feature_id":"1"}
+]
+}
+,{"type":"table","name":"car_name","database":"wabi","data":
+[
+{"id":"1","name":"Mercedes Benz"}
+]
+}
+,{"type":"table","name":"category","database":"wabi","data":
+[
+{"id":"1","category":"Luxury"}
+]
+}
+,{"type":"table","name":"details","database":"wabi","data":
+[
+{"id":"1","category_id":"1","origin":"German","mileage":"0 Km","capacity":"2000 cc","power":"550 hp","fuel_id":"1","fuel_consumption":"8 km\/L","seat_no":"4","door_no":"4","transmission_id":"1","color":"Red"}
+]
+}
+,{"type":"table","name":"features","database":"wabi","data":
+[
+{"id":"1","ac":"1","air_bag":"1","rear_camera":"1","cd_player":"1","fm_radio":"0"}
+]
+}
+,{"type":"table","name":"fuel","database":"wabi","data":
+[
+{"id":"1","fuel":"diesel"}
+]
+}
+,{"type":"table","name":"image","database":"wabi","data":
+[
+{"id":"1","path":"uploads\/29-09-2019\/1\/mercedes.png","car_id":"1"}
+]
+}
+,{"type":"table","name":"model","database":"wabi","data":
+[
+{"id":"1","model":"v-8"}
+]
+}
+,{"type":"table","name":"transmission","database":"wabi","data":
+[
+{"id":"1","transmission":"automatic"}
+]
+}
+]
