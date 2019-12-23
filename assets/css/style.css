@@ -336,3 +336,10 @@ ul, #myUL {
         font-size: 17px;
     }
 }
+.admin-login{
+    margin-top: 20vh;
+}
+.admin-login .card-header{
+    background-color: #1b6b99;
+    color: #fff;
+}
