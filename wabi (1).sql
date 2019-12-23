@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 23, 2019 at 06:20 AM
+-- Generation Time: Dec 23, 2019 at 06:53 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -235,6 +235,20 @@ CREATE TABLE `transmission` (
 INSERT INTO `transmission` (`id`, `transmission`) VALUES
 (1, 'automatic');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `first_name` text NOT NULL,
+  `last_name` text NOT NULL,
+  `username` text NOT NULL,
+  `password` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -300,6 +314,12 @@ ALTER TABLE `transmission`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -362,6 +382,12 @@ ALTER TABLE `model`
 --
 ALTER TABLE `transmission`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
