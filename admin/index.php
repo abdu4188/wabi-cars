@@ -1,3 +1,6 @@
+<?php
+    require 'session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +26,17 @@
                 </center>
                 <div class="card-body">
                     <strong><h5>Login</h5><strong>
-                    <form class="form-group">
+                    <?php
+                        if(isset($_SESSION['error'])){
+                            echo '<h6 class="login-error">'.$_SESSION['error'].'</h6>';
+                            $_SESSION['error'] = NULL;
+                        }
+                    ?>
+                    <form class="form-group" action="login.php" method="POST">
                         <label for="username">username:</label>
-                        <input type="text" placeholder="username" name="username" class="form-control">
+                        <input type="text" placeholder="username" name="username" class="form-control" required>
                         <label for="password">password:</label>
-                        <input type="password" placeholder="password" name="password" class="form-control"><br>
+                        <input type="password" placeholder="password" name="password" class="form-control" required><br>
                         <input type="submit" class="btn btn-primary" value="login">
                     </form>
                 </div>
