@@ -29,56 +29,56 @@
         <div class="container">
             <center><h5>Progress</h5></center>
             <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 33%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
         </div>
         <br><br>
         <div class="container">
-            <form action="add1.php" method="POST" class="form-group  card">
+            <form action="add2.php" method="POST" class="form-group card">
                 <div class="card-header">
                     <center><h4>Add new car</h4></center>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="car-name">Car-name</label>
-                            <input type="text" class="form-control" name="car-name" placeholder="car name" required><br>
-                            <label for="dealer">Dealer</label>
-                            <select name="dealer" class="form-control">
+                            <label for="origin">Origin:</label>
+                            <input type="text" class="form-control" name="origin" placeholder="origin" required><br>
+                            <label for="capacity">Capcity:</label>
+                            <input type="text" name="capacity" class="form-control" placeholder="capacity" required><br>
+                            <label for="fuel_consumption">Fuel consumption:</label>
+                            <input type="text" name="fuel_consumption" class="form-control" placeholder="fuel consumption" required><br>
+                            <label for="door_no">Door number:</label>
+                            <input type="number" name="door_no" class="form-control" placeholder="door number" required><br>
+                            <label for="fuel">Fuel:</label>
+                            <select name="fuel" class="form-control" required>
                                 <?php
-                                    $stmt = "SELECT * FROM dealer";
+                                    $stmt = "SELECT * FROM fuel";
                                     $result = mysqli_query($conn, $stmt);
                                     while ($row = mysqli_fetch_array($result)) {
-                                        echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+                                        echo '<option value="'.$row['id'].'">'.$row['fuel'].'</option>';
                                     }
                                 ?>
                             </select><br>
-                            <label for="image2">Image 2:</label>
-                            <input type="file" class="form-control" name="image2"><br>
-                            <label for="image4">Image 4:</label>
-                            <input type="file" class="form-control" name="image4"><br>
-                            <label for="image6">Image 6:</label>
-                            <input type="file" class="form-control" name="image6">
                         </div>
                         <div class="col-sm-6">
-                            <label for="category">Category</label>
-                            <select class="form-control" name="category">
+                            <label for="mileage">Mileage:</label>
+                            <input type="text" name="mileage" class="form-control" placeholder="mileage" required><br>
+                            <label for="power">Power:</label>
+                            <input type="text" name="power" class="form-control" placeholder="power" required><br>
+                            <label for="seat_no">Seat numbers:</label>
+                            <input type="number" name="seat_no" class="form-control" placeholder="seat number" required><br>
+                            <label for="color">Color:</label>
+                            <input type="text" name="color" class="form-control" placeholder="color" required><br>
+                            <label for="transmission">Transmission:</label>
+                            <select name="transmission" class="form-control" required>
                                 <?php
-                                $stmt = "SELECT * FROM category";
-                                $result = mysqli_query($conn, $stmt);
-                                while ($row = mysqli_fetch_array($result)) {
-                                    echo '<option value="'.$row['id'].'">'.$row['category'].'</option>';
-                                }
+                                    $stmt = "SELECT * FROM transmission";
+                                    $result = mysqli_query($conn, $stmt);
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        echo '<option value="'.$row['id'].'">'.$row['transmission'].'</option>';
+                                    }
                                 ?>
                             </select><br>
-                            <label for="model">Model:</label>
-                            <input type="text" name="model" class="form-control" placeholder="model" required><br>
-                            <label for="image1">Image 1(required):</label>
-                            <input type="file" class="form-control" name="image1" required><br>
-                            <label for="image3">Image 3:</label>
-                            <input type="file" class="form-control" name="image3"><br>
-                            <label for="image5">Image 5:</label>
-                            <input type="file" class="form-control" name="image5">
                         </div>
                     </div><br><br>
                     <center>
