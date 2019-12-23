@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 09, 2019 at 11:18 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Host: localhost
+-- Generation Time: Dec 23, 2019 at 06:20 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,17 +36,18 @@ CREATE TABLE `cars` (
   `year` int(11) NOT NULL,
   `price` varchar(50) NOT NULL,
   `new_or_used` int(11) NOT NULL,
-  `time_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `time_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `availability` int(11) NOT NULL,
-  `feature_id` int(11) NOT NULL
+  `feature_id` int(11) NOT NULL,
+  `dealer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`id`, `name_id`, `model_id`, `details_id`, `year`, `price`, `new_or_used`, `time_created`, `availability`, `feature_id`) VALUES
-(1, 1, 1, 1, 2017, '2,500,000 ', 0, '2019-10-08 13:58:02', 1, 1);
+INSERT INTO `cars` (`id`, `name_id`, `model_id`, `details_id`, `year`, `price`, `new_or_used`, `time_created`, `availability`, `feature_id`, `dealer_id`) VALUES
+(1, 1, 1, 1, 2017, '2,500,000 ', 0, '2019-12-23 05:07:57', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -83,6 +84,28 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `category`) VALUES
 (1, 'Luxury');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dealer`
+--
+
+CREATE TABLE `dealer` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `phone_no` int(11) NOT NULL,
+  `latitude` varchar(200) NOT NULL,
+  `longitude` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dealer`
+--
+
+INSERT INTO `dealer` (`id`, `name`, `phone_no`, `latitude`, `longitude`) VALUES
+(1, 'Sami car dealership', 978444345, '23.321', '21.543'),
+(2, 'Geneve car dealership', 923008877, '22.134', '24.312');
 
 -- --------------------------------------------------------
 
@@ -160,7 +183,12 @@ INSERT INTO `fuel` (`id`, `fuel`) VALUES
 
 CREATE TABLE `image` (
   `id` int(11) NOT NULL,
-  `path` text NOT NULL,
+  `path_1` text NOT NULL,
+  `path_2` text NOT NULL,
+  `path_3` text NOT NULL,
+  `path_4` text NOT NULL,
+  `path_5` text NOT NULL,
+  `path_6` text NOT NULL,
   `car_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -168,8 +196,8 @@ CREATE TABLE `image` (
 -- Dumping data for table `image`
 --
 
-INSERT INTO `image` (`id`, `path`, `car_id`) VALUES
-(1, 'uploads/29-09-2019/1/mercedes.png', 1);
+INSERT INTO `image` (`id`, `path_1`, `path_2`, `path_3`, `path_4`, `path_5`, `path_6`, `car_id`) VALUES
+(1, 'uploads/29-09-2019/1/mercedes.png', '', '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -230,6 +258,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `dealer`
+--
+ALTER TABLE `dealer`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `details`
 --
 ALTER TABLE `details`
@@ -286,6 +320,12 @@ ALTER TABLE `car_name`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `dealer`
+--
+ALTER TABLE `dealer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `details`
