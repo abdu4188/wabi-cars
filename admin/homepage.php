@@ -34,7 +34,7 @@
         </div>
         <br><br>
         <div class="container">
-            <form action="add1.php" method="POST" class="form-group  card">
+            <form action="add1.php" method="post" class="form-group card" enctype="multipart/form-data">
                 <div class="card-header">
                     <center><h4>Add new car</h4></center>
                 </div>
@@ -52,6 +52,12 @@
                                         echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
                                     }
                                 ?>
+                            </select><br>
+                            <label for="new-used">New or used</label>
+                            <select name="new-used" class="form-control">
+                                <option value="0">New</option>
+                                <option value="1">Used</option>
+                                <option value="3">Used abroad</option>
                             </select><br>
                             <label for="image2">Image 2:</label>
                             <input type="file" class="form-control" name="image2"><br>
@@ -73,6 +79,8 @@
                             </select><br>
                             <label for="model">Model:</label>
                             <input type="text" name="model" class="form-control" placeholder="model" required><br>
+                            <label for="price">Price:</label>
+                            <input type="text" name="price" class="form-control" placeholder="price" required><br>
                             <label for="image1">Image 1(required):</label>
                             <input type="file" class="form-control" name="image1" required><br>
                             <label for="image3">Image 3:</label>
@@ -82,13 +90,14 @@
                         </div>
                     </div><br><br>
                     <center>
-                        <input type="submit" class="btn btn-primary" value="Next">
+                        <input type="submit" class="btn btn-primary" name="next" value="Next">
                     </center>
                 </div>
             </form>
         </div>
     </div>
 </body>
+
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";

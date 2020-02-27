@@ -142,7 +142,7 @@
                                         $result4= mysqli_query($conn,$stmt4);
                                         while($row4 = mysqli_fetch_array($result4)){
                                         
-                                    echo '<a href="detail.php?id='.$row["id"].'"><img src="../../'.$row2['path'].'">';
+                                    echo '<a href="detail.php?id='.$row["id"].'"><img src="../../uploads/'.$row2['path_1'].'">';
                                     
                                 echo '</div>';
                                 echo '<div class="col-sm-4 col-6 ">';

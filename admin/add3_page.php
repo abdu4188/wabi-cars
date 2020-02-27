@@ -34,7 +34,7 @@
         </div>
         <br><br>
         <div class="container">
-            <form action="add1.php" method="POST" class="form-group  card">
+            <form action="insert.php" method="POST" class="form-group  card">
                 <div class="card-header">
                     <center><h4>Add new car</h4></center>
                 </div>
@@ -43,11 +43,11 @@
                         <div class="col-sm-6">
                             <center>
                                 <div class="form-check">
-                                    <input type="checkbox" name="ac" class="form-check-input">
+                                    <input type="checkbox" value="1" name="ac" class="form-check-input">
                                     <label for="ac" class="form-check-label">Ac</label>
                                 </div><br>
                                 <div class="form-check">
-                                    <input type="checkbox" name="rear-camera" class="form-check-input">
+                                    <input type="checkbox" value="1" name="rear-camera" class="form-check-input">
                                     <label for="rear-camera" class="form-check-label">Rear camera</label>
                                 </div>
                             </center>
@@ -55,11 +55,11 @@
                         <div class="col-sm-6">
                             <center>
                                 <div class="form-check">
-                                    <input type="checkbox" name="air-bag" class="form-check-input">
+                                    <input type="checkbox" value="1" name="air-bag" class="form-check-input">
                                     <label for="air-bag" class="form-check-label">Air-bag</label>
                                 </div><br>
                                 <div class="form-check">
-                                    <input type="checkbox" name="cd-player" class="form-check-input">
+                                    <input type="checkbox" value="1" name="cd-player" class="form-check-input">
                                     <label for="cd-player" class="form-check-label">Cd player</label>
                                 </div>
                             </center>
@@ -67,8 +67,8 @@
                     </div><br><br>
                     <center>
                         <div class="form-check">
-                            <input type="checkbox" name="cd-player" class="form-check-input">
-                            <label for="cd-player" class="form-check-label">Cd player</label>
+                            <input type="checkbox" value="1" name="fm-radio" class="form-check-input">
+                            <label for="fm-radio" class="form-check-label">Fm radio</label>
                         </div>
                     </center><br><br>
                     <center>

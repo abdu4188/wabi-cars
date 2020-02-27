@@ -146,7 +146,7 @@
                                     while($row3 = mysqli_fetch_array($result3)){
                                         echo '';
                                         echo '<div class="col-sm-3">'; 
-                                        echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="'. $row3["path"].'" style="width: 15vw; height: 15vh;">';
+                                        echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="uploads/'. $row3["path_1"].'" style="width: 15vw; height: 15vh;">';
                                         echo "<h3>". $row2['name']."</h3>";
                                         echo "<h6>".$myFormatForView."</h6>";
                                         echo "<h6> ".$row['price']."Birr</h6> </a>";

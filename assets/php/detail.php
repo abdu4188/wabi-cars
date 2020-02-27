@@ -104,38 +104,50 @@ $id=$_GET['id'];
                             <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                                     
                                     <?php
-                                    echo '<li data-thumb="../../'.$row4["path"].'">';
-                                    echo '<img src="../../'.$row4["path"].'">';
+                                    if ($row4['path_1'] != '') {
+                                        echo '<li data-thumb="../../uploads/'.$row4["path_1"].'">';
+                                        echo '<img src="../../uploads/'.$row4["path_1"].'">'; 
+                                    }
                                     ?>
 
                                     
                                     <?php
-                                    echo '<li data-thumb="../../'.$row4["path"].'">';
-                                    echo '<img src="../../'.$row4["path"].'">';
+                                    if ($row4['path_2'] != ''){
+                                        echo '<li data-thumb="../../uploads/'.$row4["path_2"].'">';
+                                        echo '<img src="../../uploads/'.$row4["path_2"].'">';
+                                    }
                                     ?>
                                     
                                 
                                     <?php
-                                    echo '<li data-thumb="../../'.$row4["path"].'">';
-                                    echo '<img src="../../'.$row4["path"].'">';
+                                    if ($row4['path_3'] != ''){
+                                    echo '<li data-thumb="../../uploads/'.$row4["path_3"].'">';
+                                    echo '<img src="../../uploads/'.$row4["path_3"].'">';
+                                    }
                                     ?>
                                     
                                 
                                     <?php
-                                    echo '<li data-thumb="../../'.$row4["path"].'">';
-                                    echo '<img src="../../'.$row4["path"].'">';
+                                    if ($row4['path_4'] != ''){
+                                        echo '<li data-thumb="../../uploads/'.$row4["path_4"].'">';
+                                        echo '<img src="../../uploads/'.$row4["path_4"].'">';
+                                    }
                                     ?>
                                     
                                 
                                     <?php
-                                    echo '<li data-thumb="../../'.$row4["path"].'">';
-                                    echo '<img src="../../'.$row4["path"].'">';
+                                    if ($row4['path_5'] != ''){
+                                        echo '<li data-thumb="../../uploads/'.$row4["path_5"].'">';
+                                        echo '<img src="../../uploads/'.$row4["path_5"].'">';
+                                    }
                                     ?>
                                     
                                 
                                     <?php
-                                    echo '<li data-thumb="../../'.$row4["path"].'">';
-                                    echo '<img src="../../'.$row4["path"].'">';
+                                    if ($row4['path_6'] != ''){
+                                        echo '<li data-thumb="../../uploads/'.$row4["path_6"].'">';
+                                        echo '<img src="../../uploads/'.$row4["path_6"].'">';                                        
+                                    }
                                     ?>
                                     
                                 
@@ -244,7 +256,7 @@ $id=$_GET['id'];
                                 while($row3 = mysqli_fetch_array($result3)){
                                     echo '';
                                     echo '<div class="col-sm-3">'; 
-                                    echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="../../'. $row3["path"].'" style="width: 15vw; height: 15vh;">';
+                                    echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="../../uploads/'. $row3["path"].'" style="width: 15vw; height: 15vh;">';
                                     echo "<h3>". $row2['name']."</h3>";
                                     echo "<h6>".$myFormatForView."</h6>";
                                     echo "<h6> ".$row['price']."Birr</h6> </a>";

@@ -43,6 +43,8 @@
                         <div class="col-sm-6">
                             <label for="origin">Origin:</label>
                             <input type="text" class="form-control" name="origin" placeholder="origin" required><br>
+                            <label for="year">Year produced:</label>
+                            <input type="text" name="year" class="form-control" placeholder="year produced" required><br>
                             <label for="capacity">Capcity:</label>
                             <input type="text" name="capacity" class="form-control" placeholder="capacity" required><br>
                             <label for="fuel_consumption">Fuel consumption:</label>

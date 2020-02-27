@@ -11,6 +11,7 @@
     $_SESSION['color'] = $_POST['color'];
     $_SESSION['fuel'] = $_POST['fuel'];
     $_SESSION['transmission'] = $_POST['transmission'];
+    $_SESSION['year'] = $_POST['year'];
 
     header('Location: add3_page.php');
 ?>

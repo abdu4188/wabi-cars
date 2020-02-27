@@ -13,6 +13,7 @@
         while ($row = mysqli_fetch_array($result)) {
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
+            $_SESSION['logged_in'] = true;
             echo $row['username'];
             header('Location: homepage.php');
         }
