@@ -2,6 +2,28 @@
     require '../assets/php/db.php';
     require 'session.php';
     $username = $_SESSION['username'];
+    $id=$_SESSION['car_id'];
+
+    $stmt = "SELECT * FROM details WHERE id = '".$id."'";
+    if ($result = mysqli_query($conn, $stmt)) {
+        $row = mysqli_fetch_array($result);
+        $origin = $row['origin'];
+        $mileage = $row['mileage'];
+        $power = $row['power'];
+        $capacity = $row['capacity'];
+        $seat_no = $row['seat_no'];
+        $door_no = $row['door_no'];
+        $fuel_consumption = $row['fuel_consumption'];
+        $color = $row['color'];
+        $transmission = $row['transmission_id'];
+        $fuel = $row['fuel_id'];
+    }
+
+    $stmt = "SELECT * FROM cars WHERE id = '".$id."'";
+    if ($result = mysqli_query($conn, $stmt)) {
+        $row = mysqli_fetch_array($result);
+        $year = $row['year'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +56,7 @@
         </div>
         <br><br>
         <div class="container">
-            <form action="add2.php" method="POST" class="form-group card">
+            <form action="edit_session2.php" method="POST" class="form-group card">
                 <div class="card-header">
                     <center><h4>Add new car</h4></center>
                 </div>
@@ -42,42 +64,46 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="origin">Origin:</label>
-                            <input type="text" class="form-control" name="origin" placeholder="origin" required><br>
+                            <input type="text" class="form-control" <?php echo 'value="'.$origin.'"'; ?> name="origin" placeholder="origin" required><br>
                             <label for="year">Year produced:</label>
-                            <input type="text" name="year" class="form-control" placeholder="year produced" required><br>
+                            <input type="text" name="year" <?php echo 'value="'.$year.'"'; ?> class="form-control" placeholder="year produced" required><br>
                             <label for="capacity">Capcity:</label>
-                            <input type="text" name="capacity" class="form-control" placeholder="capacity" required><br>
+                            <input type="text" name="capacity" <?php echo 'value="'.$capacity.'"'; ?> class="form-control" placeholder="capacity" required><br>
                             <label for="fuel_consumption">Fuel consumption:</label>
-                            <input type="text" name="fuel_consumption" class="form-control" placeholder="fuel consumption" required><br>
+                            <input type="text" name="fuel_consumption" <?php echo 'value="'.$fuel_consumption.'"'; ?> class="form-control" placeholder="fuel consumption" required><br>
                             <label for="door_no">Door number:</label>
-                            <input type="number" name="door_no" class="form-control" placeholder="door number" required><br>
+                            <input type="number" name="door_no" <?php echo 'value="'.$door_no.'"'; ?> class="form-control" placeholder="door number" required><br>
                             <label for="fuel">Fuel:</label>
                             <select name="fuel" class="form-control" required>
                                 <?php
                                     $stmt = "SELECT * FROM fuel";
                                     $result = mysqli_query($conn, $stmt);
                                     while ($row = mysqli_fetch_array($result)) {
-                                        echo '<option value="'.$row['id'].'">'.$row['fuel'].'</option>';
+                                        echo '<option value="'.$row['id'].'" ';
+                                        echo ($row['id'] == $fuel) ? "selected" : "";
+                                        echo ' >'.$row['fuel'].'</option>';
                                     }
                                 ?>
                             </select><br>
                         </div>
                         <div class="col-sm-6">
                             <label for="mileage">Mileage:</label>
-                            <input type="text" name="mileage" class="form-control" placeholder="mileage" required><br>
+                            <input type="text" name="mileage" <?php echo 'value="'.$mileage.'"'; ?> class="form-control" placeholder="mileage" required><br>
                             <label for="power">Power:</label>
-                            <input type="text" name="power" class="form-control" placeholder="power" required><br>
+                            <input type="text" name="power" <?php echo 'value="'.$power.'"'; ?> class="form-control" placeholder="power" required><br>
                             <label for="seat_no">Seat numbers:</label>
-                            <input type="number" name="seat_no" class="form-control" placeholder="seat number" required><br>
+                            <input type="number" name="seat_no" <?php echo 'value="'.$seat_no.'"'; ?> class="form-control" placeholder="seat number" required><br>
                             <label for="color">Color:</label>
-                            <input type="text" name="color" class="form-control" placeholder="color" required><br>
+                            <input type="text" name="color" <?php echo 'value="'.$color.'"'; ?> class="form-control" placeholder="color" required><br>
                             <label for="transmission">Transmission:</label>
                             <select name="transmission" class="form-control" required>
                                 <?php
                                     $stmt = "SELECT * FROM transmission";
                                     $result = mysqli_query($conn, $stmt);
                                     while ($row = mysqli_fetch_array($result)) {
-                                        echo '<option value="'.$row['id'].'">'.$row['transmission'].'</option>';
+                                        echo '<option value="'.$row['id'].'" ';
+                                        echo ($row['id'] == $transmission) ? "selected" : "";
+                                        echo ' >'.$row['transmission'].'</option>';
                                     }
                                 ?>
                             </select><br>

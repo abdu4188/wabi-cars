@@ -154,10 +154,20 @@ header{
     top: 0%;
     transform: translateX(70%);
 }
+.edit-cars-list     {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);   
+}
+.card{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+}
+.cars-list-no-shadow{
+    box-shadow: 0;
+}
 .car-list .card{
     width: 55vw;
     height: 25vh;
-    box-shadow: 3px 3px rgb(170, 170, 170);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     margin-bottom: 5vh; 
 }
 .sidenav{
