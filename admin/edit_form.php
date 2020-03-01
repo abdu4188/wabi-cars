@@ -4,6 +4,9 @@
     $id=$_GET['id'];
     $_SESSION['car_id'] = $id;
     $username = $_SESSION['username'];
+    if (!isset($_SESSION['logged_in'])) {
+        header('Location: index.php');
+    }
 
     $stmt = "SELECT * FROM car_name WHERE id = '".$id."'";
     if ($result = mysqli_query($conn, $stmt)) {
@@ -80,6 +83,7 @@
         <a href="homepage.php">Add new car</a>
         <a href="edit.php">Edit car info</a>
         <a href="delete.php">Mark car as sold</a>
+        <a href="logout.php" class="logout">Logout</a>
     </div>
     <div id="main">
         <span  class="open-nav" onclick="openNav()">&#9776;</span>

@@ -31,6 +31,9 @@
                             echo '<h6 class="login-error">'.$_SESSION['error'].'</h6>';
                             $_SESSION['error'] = NULL;
                         }
+                        if (isset($_SESSION['logged_in'])) {
+                            header('Location: homepage.php');
+                        }
                     ?>
                     <form class="form-group" action="login.php" method="POST">
                         <label for="username">username:</label>

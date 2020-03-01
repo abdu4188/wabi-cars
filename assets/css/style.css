@@ -411,3 +411,6 @@ ul, #myUL {
     padding: 16px;
     position: fixed;
   }
+  .logout{
+      margin-top: 50vh;
+  }
