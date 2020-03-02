@@ -15,10 +15,10 @@ $id=$_GET['id'];
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/fontawesome.css">
         <link type="text/css" rel="stylesheet" href="../css/lightslider.css" />
-        <script src="../js/script.js"></script>  
         <script src="../js/jquery-3.4.1.min.js"></script>
         <script src="../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
         <script src="../js/lightslider.js"></script>
+        <!-- <script src="../js/script.js"></script>   -->
         <script>
             $(document).ready(function() {
 			$("#content-slider").lightSlider({
@@ -43,7 +43,7 @@ $id=$_GET['id'];
     </head>
     <body>
         <div class="body-container">
-            <nav class="navbar hidden fixed-top navbar-expand-lg navbar-light ">
+            <nav class="navbar hidden fixed-top navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#"><img src="../images/wabi.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -163,7 +163,8 @@ $id=$_GET['id'];
                 
                 <div class="detail-info row col-sm-12">
                     <?php
-                        echo '<div class="row col-sm-6">';
+                        echo '<div class="row col-sm-6 card" style="height: 80vh;  margin-right: 1vw;">';
+                        echo '<div class="row card-body">';
                         echo '<div class="col-sm-6">';
                         echo '<center><h4>Specifications</h4></center><br>';
                         echo '<h5><strong>Year:</strong></h5>';
@@ -208,6 +209,7 @@ $id=$_GET['id'];
                         }
                         echo '</div>';
                         echo '</div>';
+                        echo '</div>';
                     }
                 }
             }
@@ -215,17 +217,18 @@ $id=$_GET['id'];
     }
 }
                     ?>
-                    <div class="contact col-sm-6">
-                        <center>
-                        <h4>Contact</h4>
-                        </center>
-                        <br>
+                    <div class="contact col-sm-6 card">
+                        <div class="card-body">
+                            <center>
+                            <h4>Contact</h4>
+                            </center>
+                            <br>
 
-                        <h5><strong>Phone Number:</strong></h5>
-                        <p>0911223344</p>
-                        <h5><strong>Email Us:</strong></h5>
-                        <p>contact@wabi.com</p>
-                    
+                            <h5><strong>Phone Number:</strong></h5>
+                            <p>0911223344</p>
+                            <h5><strong>Email Us:</strong></h5>
+                            <p>contact@wabi.com</p>
+                        </div>
                     </div>
                 </div><br><br>
 
@@ -255,13 +258,18 @@ $id=$_GET['id'];
                                 $result3= mysqli_query($conn,$stmt3);
                                 while($row3 = mysqli_fetch_array($result3)){
                                     echo '';
-                                    echo '<div class="col-sm-3">'; 
-                                    echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="../../uploads/'. $row3["path"].'" style="width: 15vw; height: 15vh;">';
+                                    echo '<div class="col-sm-3">';
+                                    echo '<div class="card">';
+                                    echo '<div class="card-body">'; 
+                                    echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="../../uploads/'. $row3["path_1"].'" style="width: 15vw; height: 15vh;">';
                                     echo "<h3>". $row2['name']."</h3>";
                                     echo "<h6>".$myFormatForView."</h6>";
                                     echo "<h6> ".$row['price']."Birr</h6> </a>";
-                                    if($row['new_or_used']==0){echo "<p><strong>New</strong></p>";}
-                                    else{echo "<p><strong>Used</strong></p>";}
+                                    if($row['new_or_used']==1){echo "<p><strong>New</strong></p>";}
+                                    elseif ($row['new_or_used'] == 2){ echo "<p><strong>Used Abroad</strong></p>";}
+                                    elseif ($row['new_or_used'] == 3){echo "<p><strong>Used</strong></p>";}
+                                    echo '</div>';
+                                    echo '</div>';
                                 echo '</div>';
                                 $count++;
                                 if($count=3){
@@ -280,7 +288,7 @@ $id=$_GET['id'];
 
 
             <br><br><br><br><br><br>
-            <!-- <footer>
+            <footer>
                 <div class="footer">
                         <i class="fab fa-facebook fa-2x logos"></i>
                         <i class="fab fa-twitter fa-2x logos"></i>
@@ -292,7 +300,7 @@ $id=$_GET['id'];
                     </div>
             
                     
-            </footer> -->
+            </footer>
             
         </div>
     </body>

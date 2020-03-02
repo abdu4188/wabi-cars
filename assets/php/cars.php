@@ -51,7 +51,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form class="form-inline header-search ">
-                                <input class="form-control" type="search" placeholder="Search" aria-label="Search"><br>
+                                <input class="form-control" type="search" placeholder="Search" aria-label="Search"><br><br>
                                 <button class="btn btn-outline-success " type="submit">Search</button>
                             </form><br>
 
