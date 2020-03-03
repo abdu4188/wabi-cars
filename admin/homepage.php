@@ -59,9 +59,9 @@
                             </select><br>
                             <label for="new-used">New or used</label>
                             <select name="new-used" class="form-control">
-                                <option value="0">New</option>
-                                <option value="1">Used</option>
-                                <option value="3">Used abroad</option>
+                                <option value="1">New</option>
+                                <option value="2">Used abroad</option>
+                                <option value="3">Used</option>
                             </select><br>
                             <label for="image2">Image 2:</label>
                             <input type="file" class="form-control" name="image2"><br>

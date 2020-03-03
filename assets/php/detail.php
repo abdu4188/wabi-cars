@@ -55,10 +55,10 @@ $id=$_GET['id'];
                             <a class="nav-link" href="../../">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">New Cars</a>
+                            <a class="nav-link" href="new_cars.php">New Cars</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Used Cars</a>
+                            <a class="nav-link" href="used_cars.php">Used Cars</a>
                         </li>
                     </ul>
                     <form class="form-inline header-search my-2 my-lg-0">
@@ -264,7 +264,7 @@ $id=$_GET['id'];
                                     echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="../../uploads/'. $row3["path_1"].'" style="width: 15vw; height: 15vh;">';
                                     echo "<h3>". $row2['name']."</h3>";
                                     echo "<h6>".$myFormatForView."</h6>";
-                                    echo "<h6> ".$row['price']."Birr</h6> </a>";
+                                    echo "<h6> ".$row['price']."</h6> </a>";
                                     if($row['new_or_used']==1){echo "<p><strong>New</strong></p>";}
                                     elseif ($row['new_or_used'] == 2){ echo "<p><strong>Used Abroad</strong></p>";}
                                     elseif ($row['new_or_used'] == 3){echo "<p><strong>Used</strong></p>";}

@@ -30,10 +30,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">New Cars</a>
+                            <a class="nav-link" href="assets/php/new_cars.php">New Cars</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Used Cars</a>
+                            <a class="nav-link" href="assets/php/used_cars.php">Used Cars</a>
                         </li>
                     </ul>
                     <form class="form-inline header-search my-2 my-lg-0">
@@ -48,8 +48,8 @@
                     <div class="header-comp">
                         <h2>Providing from everyday cars to luxurious cars</h2>
                         <div class="header-btns">
-                            <button class="btn btn-primary">New Cars</button>
-                            <button class="btn btn-warning">Used Cars</button>
+                            <a href="assets/php/new_cars.php" class="btn btn-primary">New Cars</a>
+                            <a href="assets/php/used_cars.php" class="btn btn-warning">Used Cars</a>
                         </div>
                     
                     </div>
@@ -83,45 +83,46 @@
                     <div class="tab-content">
                         <div id="new" class="container tab-pane active"><br>
                             <div class="row">
-                                <div class="col-sm-2 col-xs-6">
-                                    <p> audi</p>
-                                    <p>Benz</p>
-                                    <p>Cadilac</p>
-                                    <p>Renault</p>
-                                </div>
-
-                                <div class="col-sm-2 col-xs-6">
-                                    <p>Hyundai</p>
-                                    <p>Toyota</p>
-                                    <p>Lifan</p>
-                                    <p>Range Rover</p>
-                                </div>
-
-
+                                <?php
+                                $stmt = "SELECT * FROM cars WHERE new_or_used = 2 OR new_or_used = 1";
+                                if ($result= mysqli_query($conn, $stmt)) {
+                                    while($row = mysqli_fetch_array($result)){
+                                        $model_id = $row['model_id'];
+                                        $stmt = "SELECT * FROM car_name WHERE id = ".$row['name_id'];
+                                        if ($result2= mysqli_query($conn, $stmt)) {
+                                            while($row2 = mysqli_fetch_array($result2)){
+                                                echo '<div class="col-sm-2 col-xs-6">';
+                                                echo "<p>".$row2['name']."</p>";
+                                                echo '</div>';
+                                            }
+                                        }
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                         <div id="used" class="container tab-pane fade"><br>
                             <div class="row">
-                                    <div class="col-sm-2 col-xs-6">
-                                        <p> audi</p>
-                                        <p>Benz</p>
-                                        <p>Cadilac</p>
-                                        <p>Renault</p>
-                                    </div>
-            
-                                    <div class="col-sm-2 col-xs-6">
-                                        <p>Hyundai</p>
-                                        <p>Toyota</p>
-                                        <p>Lifan</p>
-                                        <p>Range Rover</p>
-                                    </div>
-            
-            
+                            <?php
+                                $stmt = "SELECT * FROM cars WHERE new_or_used = 3";
+                                if ($result= mysqli_query($conn, $stmt)) {
+                                    while($row = mysqli_fetch_array($result)){
+                                        $model_id = $row['model_id'];
+                                        $stmt = "SELECT * FROM car_name WHERE id = ".$row['name_id'];
+                                        if ($result2= mysqli_query($conn, $stmt)) {
+                                            while($row2 = mysqli_fetch_array($result2)){
+                                                echo '<div class="col-sm-2 col-xs-6">';
+                                                echo "<p>".$row2['name']."</p>";
+                                                echo '</div>';
+                                            }
+                                        }
+                                    }
+                                }
+                                ?>
+                            </div>
                         </div>
-                        
                     </div>
-                </div>
-            </center>
+                </center>
             </div>
 
 

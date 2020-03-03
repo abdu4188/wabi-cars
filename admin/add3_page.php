@@ -53,7 +53,7 @@
                                 <div class="form-check">
                                     <input type="checkbox" value="1" name="rear-camera" class="form-check-input">
                                     <label for="rear-camera" class="form-check-label">Rear camera</label>
-                                </div>
+                                </div><br>
                             </center>
                         </div>
                         <div class="col-sm-6">
@@ -68,13 +68,23 @@
                                 </div>
                             </center>
                         </div>
-                    </div><br><br>
-                    <center>
-                        <div class="form-check">
-                            <input type="checkbox" value="1" name="fm-radio" class="form-check-input">
-                            <label for="fm-radio" class="form-check-label">Fm radio</label>
+                        <div class="col-sm-6">
+                            <center>
+                                <div class="form-check">
+                                    <input type="checkbox" value="1" name="fm-radio" class="form-check-input">
+                                    <label for="fm-radio" class="form-check-label">Fm radio</label>
+                                </div>
+                            </center>
                         </div>
-                    </center><br><br>
+                        <div class="col-sm-6">
+                            <center>
+                                <div>
+                                    <label for="seat_material">Seat material:</label>
+                                    <input type="text" name="seat_material" placeholder="seat material" class="">
+                                </div>
+                            </center>
+                        </div>
+                    </div><br><br>
                     <center>
                         <input type="submit" class="btn btn-primary" value="Next">
                     </center>

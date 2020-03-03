@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Cars for sale</title>
+        <title>Used cars for sale</title>
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
@@ -30,14 +30,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                            <a class="nav-link" href="../../">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="new_cars.php">New Cars</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="used_cars.php">Used Cars</a>
-                        </li>
+                        <a class="nav-link" href="../../">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="new_cars.php">New Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="used_cars.php">Used Cars</a>
+                    </li>
                     </ul>
                     <form class="form-inline header-search my-2 my-lg-0">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -121,7 +121,7 @@
 
                     <?php
 
-                        $stmt= "SELECT * FROM cars ORDER BY time_created";
+                        $stmt= "SELECT * FROM cars WHERE new_or_used = 3 ORDER BY time_created";
                         $result= mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             $time = strtotime($row['time_created']);

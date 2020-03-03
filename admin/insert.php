@@ -33,8 +33,9 @@
     $year=0 ;
     $price='';
     $new_used=0;
+    $seat_material = '';
     
-    function checkFeatureset(&$ac, &$rear_camera, &$air_bag, &$cd_player, &$fm_radio)
+    function checkFeatureset(&$ac, &$rear_camera, &$air_bag, &$cd_player, &$fm_radio, &$seat_material)
     {
         if (isset($_POST['ac'])) {
             $ac = 1;
@@ -51,6 +52,7 @@
         if (isset($_POST['fm-radio'])) {
             $fm_radio = 1;
         }
+        $seat_material = $_POST['seat_material'];
     }
     
     function setVariablesFromSesion(&$car_name, &$dealer, &$category, &$model, &$image1, &$image2, &$image3, &$image4, &$image5, &$image6, &$origin, &$mileage, &$capacity, &$power, &$fuel_consumption, &$seat_no, &$door_no, &$color, &$fuel, &$trasmission, &$user_id, &$year, &$price, &$new_used)
@@ -82,7 +84,7 @@
         $new_used = $_SESSION['new-used'];
     }
 
-    function insertTodb($conn, $car_name, $category, $origin, $mileage, $capacity, $power, $fuel, $fuel_consumption, $seat_no, $door_no, $trasmission, $color,$image1, $image2, $image3, $image4, $image5, $image6, $model, $ac, $air_bag, $rear_camera, $cd_player, $fm_radio, $year, $price, $new_used, $user_id)
+    function insertTodb($conn, $car_name, $category, $origin, $mileage, $capacity, $power, $fuel, $fuel_consumption, $seat_no, $door_no, $trasmission, $color,$image1, $image2, $image3, $image4, $image5, $image6, $model, $ac, $air_bag, $rear_camera, $cd_player, $fm_radio, $year, $price, $new_used, $user_id, $seat_material)
     {
         $status =true;
         $stmt = "SELECT id FROM cars ORDER BY id DESC LIMIT 1";
@@ -127,7 +129,7 @@
             $status = false;
         }
 
-        $stmt ="INSERT INTO features (ac, air_bag, rear_camera, cd_player, fm_radio) VALUES ('$ac', '$air_bag', '$rear_camera', '$cd_player', '$fm_radio')";
+        $stmt ="INSERT INTO features (ac, air_bag, rear_camera, cd_player, fm_radio, seat_material) VALUES ('$ac', '$air_bag', '$rear_camera', '$cd_player', '$fm_radio', '$seat_material')";
         if (mysqli_query($conn, $stmt)) {
             
         }
@@ -153,9 +155,9 @@
 
     }
 
-    checkFeatureset($ac, $rear_camera, $air_bag, $cd_player, $fm_radio);
+    checkFeatureset($ac, $rear_camera, $air_bag, $cd_player, $fm_radio, $seat_material);
     setVariablesFromSesion($car_name, $dealer, $category, $model, $image1, $image2, $image3, $image4, $image5, $image6, $origin, $mileage, $capacity, $power, $fuel_consumption, $seat_no, $door_no, $color, $fuel, $trasmission, $user_id, $year, $price, $new_used);
-    if(insertTodb($conn, $car_name, $category, $origin, $mileage, $capacity, $power, $fuel, $fuel_consumption, $seat_no, $door_no, $trasmission, $color, $image1, $image2, $image3, $image4, $image5, $image6, $model, $ac, $air_bag, $rear_camera, $cd_player, $fm_radio, $year, $price, $new_used, $user_id)){
+    if(insertTodb($conn, $car_name, $category, $origin, $mileage, $capacity, $power, $fuel, $fuel_consumption, $seat_no, $door_no, $trasmission, $color, $image1, $image2, $image3, $image4, $image5, $image6, $model, $ac, $air_bag, $rear_camera, $cd_player, $fm_radio, $year, $price, $new_used, $user_id, $seat_material)){
         header('Location: homepage.php');
     }
 
