@@ -1,6 +1,7 @@
 <?php
 require 'db.php';
 $id=$_GET['id'];
+$seat_material = "";
 ?>
 
 <!Doctype html>
@@ -13,7 +14,7 @@ $id=$_GET['id'];
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/fontawesome.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link type="text/css" rel="stylesheet" href="../css/lightslider.css" />
         <script src="../js/jquery-3.4.1.min.js"></script>
         <script src="../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
@@ -77,6 +78,34 @@ $id=$_GET['id'];
                         $time = strtotime($row['time_created']);
                         $myFormatForView = date("m/d/y g:i A", $time);
                         $year=$row['year'];
+                        $price = $row['price'];
+                        if ($row['new_or_used'] == 1) {
+                            $new_used = 'New';
+                        }
+                        elseif ($row['new_or_used'] == 2) {
+                            $new_used = 'Used abroad';
+                        }
+                        elseif ($row['new_or_used'] == 3) {
+                            $new_used = 'Used';
+                        }
+
+                        $sql = "SELECT * FROM dealer WHERE id = ".$row['dealer_id'];
+                        $resultt = mysqli_query($conn, $sql);
+                        while($roww = mysqli_fetch_array($resultt)){
+                            $dealer = $roww['name'];
+                        }
+
+                        $featurestmt = "SELECT * FROM features WHERE id = ".$row['feature_id'];
+                        $featureresult = mysqli_query($conn, $featurestmt);
+                        while ($featurerow = mysqli_fetch_array($featureresult)) {
+                            $seat_material = $featurerow['seat_material'];
+                            $ac = $featurerow['ac'];
+                            $air_bag = $featurerow['air_bag'];
+                            $rear_camera = $featurerow['rear_camera'];
+                            $cd_player = $featurerow['cd_player'];
+                            $fm_radio = $featurerow['fm_radio'];
+                        }
+                        
                     
                 ?>
 
@@ -163,22 +192,26 @@ $id=$_GET['id'];
                 
                 <div class="detail-info row col-sm-12">
                     <?php
-                        echo '<div class="row col-sm-6 card" style="height: 80vh;  margin-right: 1vw;">';
+                        echo '<div class="row col-sm-6 card" style="height: 95vh;  margin-right: 1vw;">';
                         echo '<div class="row card-body">';
                         echo '<div class="col-sm-6">';
                         echo '<center><h4>Specifications</h4></center><br>';
-                        echo '<h5><strong>Year:</strong></h5>';
                         echo '<h5><strong>Category:</strong></h5>';
+                        echo '<h5><strong>Status:</strong></h5>';
+                        echo '<h5><strong>Year:</strong></h5>';
+                        echo '<h5><strong>Fuel:</strong></h5>';
+                        echo '<h5><strong>Transmission:</strong></h5>';
                         echo '<h5><strong>Origin:</strong></h5>';
                         echo '<h5><strong>Mileage:</strong></h5>';
                         echo '<h5><strong>Capacity:</strong></h5>';
                         echo '<h5><strong>Power:</strong></h5>';
-                        echo '<h5><strong>Fuel:</strong></h5>';
-                        echo '<h5><strong>Fuel Consumption:</strong></h5>';
-                        echo '<h5><strong>Number of seat:</strong></h5>';
-                        echo '<h5><strong>Doors:</strong></h5>';
-                        echo '<h5><strong>Transmission:</strong></h5>';
+                        echo '<h5><strong>Fuel consumption:</strong></h5>';
                         echo '<h5><strong>Color:</strong></h5>';
+                        echo '<h5><strong>Seat Number:</strong></h5>';
+                        echo '<h5><strong>Door Number:</strong></h5>';
+                        echo '<h5><strong>Price:</strong></h5>';
+                        echo '<h5><strong>Date posted:</strong></h5>';
+                        echo '<h5><strong>Dealership:</strong></h5>';
                         echo '</div>';
                         echo '<div class="col-sm-6">';
                         $stmt5="SELECT * FROM details WHERE id =". $row['details_id'];
@@ -194,18 +227,24 @@ $id=$_GET['id'];
                                     $result8=mysqli_query($conn,$stmt8);
                                     while($row8 = mysqli_fetch_array($result8)){
                                         echo '<br><br>';
-                                        echo "<h5>$year</h5>";
                                         echo "<h5>".$row6['category']."</h5>";
+                                        echo "<h5>".$new_used."</h5>";
+                                        echo "<h5>".$year."</h5>";
+                                        echo "<h5>".$row7['fuel']."</h5>";
+                                        echo "<h5>".$row8['transmission']   ."</h5>";
                                         echo "<h5>".$row5['origin']."</h5>";
                                         echo "<h5>".$row5['mileage']."</h5>";
                                         echo "<h5>".$row5['capacity']."</h5>";
                                         echo "<h5>".$row5['power']."</h5>";
-                                        echo "<h5>".$row7['fuel']."</h5>";
                                         echo "<h5>".$row5['fuel_consumption']."</h5>";
+                                        echo "<h5>".$row5['color']."</h5>";
                                         echo "<h5>".$row5['seat_no']."</h5>";
                                         echo "<h5>".$row5['door_no']."</h5>";
-                                        echo "<h5>".$row8['transmission']."</h5>";
-                                        echo "<h5>".$row5['color']."</h5>";
+                                        echo "<h5>".$price."</h5>";
+                                        echo "<h5>".$myFormatForView."</h5>";
+                                        echo "<h5>".$dealer."</h5>";
+
+
                         }
                         echo '</div>';
                         echo '</div>';
@@ -220,6 +259,54 @@ $id=$_GET['id'];
                     <div class="contact col-sm-6 card">
                         <div class="card-body">
                             <center>
+                                <h4>Features</h4>
+                            </center><br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h5>Seat material:</h5>
+                                    <h5>AC:</h5>
+                                    <h5>Air bag:</h5>
+                                    <h5>Rear camera:</h5>
+                                    <h5>Cd player:</h5>
+                                    <h5>Fm Radio:</h5>
+                                </div>
+                                <div class="col-sm-6">
+                                    <?php
+                                    echo "<h5>".$seat_material."</h5>";
+                                    if ($ac == 1) {
+                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    else{
+                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    if ($air_bag == 1) {
+                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    else{
+                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    if ($rear_camera == 1) {
+                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    else{
+                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    if ($cd_player == 1) {
+                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    else{
+                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    if ($fm_radio == 1) {
+                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                    }
+                                    else{
+                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i>';
+                                    }
+                                    ?>
+                                </div>
+                            </div><br>
+                            <center>
                             <h4>Contact</h4>
                             </center>
                             <br>
@@ -230,7 +317,7 @@ $id=$_GET['id'];
                             <p>contact@wabi.com</p>
                         </div>
                     </div>
-                </div><br><br>
+                </div><br><br><br><br>
 
                 <div class="similar">
                     <center>
@@ -261,7 +348,7 @@ $id=$_GET['id'];
                                     echo '<div class="col-sm-3">';
                                     echo '<div class="card">';
                                     echo '<div class="card-body">'; 
-                                    echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="../../uploads/'. $row3["path_1"].'" style="width: 15vw; height: 15vh;">';
+                                    echo '<a href="?id='.$row["id"].'"><img src="../../uploads/'. $row3["path_1"].'" style="width: 15vw; height: 15vh;">';
                                     echo "<h3>". $row2['name']."</h3>";
                                     echo "<h6>".$myFormatForView."</h6>";
                                     echo "<h6> ".$row['price']."</h6> </a>";

@@ -66,6 +66,7 @@
 
             <div class="models">
                 <center>
+                    
                 <h3>Choose cars by model</h3><br><br>
                 <div class="pill-tab">
                     <!-- Nav pills -->
@@ -82,43 +83,44 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div id="new" class="container tab-pane active"><br>
-                            <div class="row">
-                                <?php
-                                $stmt = "SELECT * FROM cars WHERE new_or_used = 2 OR new_or_used = 1";
-                                if ($result= mysqli_query($conn, $stmt)) {
-                                    while($row = mysqli_fetch_array($result)){
-                                        $model_id = $row['model_id'];
-                                        $stmt = "SELECT * FROM car_name WHERE id = ".$row['name_id'];
-                                        if ($result2= mysqli_query($conn, $stmt)) {
-                                            while($row2 = mysqli_fetch_array($result2)){
-                                                echo '<div class="col-sm-2 col-xs-6">';
-                                                echo "<p>".$row2['name']."</p>";
-                                                echo '</div>';
-                                            }
-                                        }
+                        <div class="row" style="margin-left: -30vw;">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                            <?php
+                                $stmt = "SELECT DISTINCT name FROM car_name WHERE id IN (SELECT name_id FROM cars WHERE new_or_used = 1 OR new_or_used = 2)";
+                                if ($result2= mysqli_query($conn, $stmt)) {
+                                    while($row2 = mysqli_fetch_array($result2)){
+                                        echo '<div class="col-sm-6 col-xs-6">';
+                                        echo '<a href="assets/php/cars_models.php?name='.$row2['name'].'">'.$row2['name'].'</a>';
+                                        echo '</div>';
                                     }
                                 }
-                                ?>
+                            ?>
+                            
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
                             </div>
                         </div>
                         <div id="used" class="container tab-pane fade"><br>
-                            <div class="row">
-                            <?php
-                                $stmt = "SELECT * FROM cars WHERE new_or_used = 3";
-                                if ($result= mysqli_query($conn, $stmt)) {
-                                    while($row = mysqli_fetch_array($result)){
-                                        $model_id = $row['model_id'];
-                                        $stmt = "SELECT * FROM car_name WHERE id = ".$row['name_id'];
-                                        if ($result2= mysqli_query($conn, $stmt)) {
-                                            while($row2 = mysqli_fetch_array($result2)){
-                                                echo '<div class="col-sm-2 col-xs-6">';
-                                                echo "<p>".$row2['name']."</p>";
-                                                echo '</div>';
-                                            }
+                            <div class="row" style="margin-left: -30vw;">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                    <?php
+                                    $stmt = "SELECT DISTINCT name FROM car_name WHERE id IN (SELECT name_id FROM cars WHERE new_or_used = 3)";
+                                    if ($result2= mysqli_query($conn, $stmt)) {
+                                        while($row2 = mysqli_fetch_array($result2)){
+                                            echo '<div class="col-sm-6 col-xs-6">';
+                                            echo '<a href="assets/php/cars_models.php?name='.$row2['name'].'">'.$row2['name'].'</a>';
+                                            echo '</div>';
                                         }
                                     }
-                                }
                                 ?>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
                             </div>
                         </div>
                     </div>

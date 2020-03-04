@@ -157,7 +157,6 @@
                                             echo '<a href=""><i class="fa fa-2x fa-phone">call</i></a>';
                                             echo '<a href=""><i class="fab fa-2x fa-whatsapp"></i></a>';
                                             echo '<a href=""><i class="fab fa-2x fa-telegram"></i></a>';
-                                            echo' <a href=""><i class="fa fa-2x fa-envelope"></i></a>';
                                         echo '</div>';
                                         echo '</div>';
 
