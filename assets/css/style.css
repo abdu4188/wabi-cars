@@ -137,12 +137,12 @@ header{
 }
 
 .car-detail{
-    margin-top: 15vh;
+    margin-top: 12vh;
     margin-left: 0vw;
 }
 .car-detail img{
     width: 35vw; 
-    height: 30vh;
+    height: 40vh;
 }
 .detail-info{
     margin-top: 10vh;
@@ -474,4 +474,7 @@ ul, #myUL {
     margin-top: 1vh;
     border-radius: 2vh;
     width: 8vw;
+}
+.spec h5{
+    padding-top: 1vh !important;
 }

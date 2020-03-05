@@ -123,7 +123,7 @@ $seat_material = "";
                         $result4=mysqli_query($conn,$stmt4);
                         while($row4 = mysqli_fetch_array($result4)){
                 ?>
-                    <br><br><br>
+                    <br>
                     <h4>Images</h4>
                     <br><br>
                 </center>
@@ -214,7 +214,7 @@ $seat_material = "";
                         echo '<h5><strong>Date posted:</strong></h5>';
                         echo '<h5><strong>Dealership:</strong></h5>';
                         echo '</div>';
-                        echo '<div class="col-sm-6">';
+                        echo '<div class="col-sm-6" style="margin-top: 3.1vh;">';
                         $stmt5="SELECT * FROM details WHERE id =". $row['details_id'];
                         $result5=mysqli_query($conn,$stmt5);
                         while($row5 = mysqli_fetch_array($result5)){
@@ -228,22 +228,22 @@ $seat_material = "";
                                     $result8=mysqli_query($conn,$stmt8);
                                     while($row8 = mysqli_fetch_array($result8)){
                                         echo '<br><br>';
-                                        echo "<h5>".$row6['category']."</h5>";
-                                        echo "<h5>".$new_used."</h5>";
-                                        echo "<h5>".$year."</h5>";
-                                        echo "<h5>".$row7['fuel']."</h5>";
-                                        echo "<h5>".$row8['transmission']   ."</h5>";
-                                        echo "<h5>".$row5['origin']."</h5>";
-                                        echo "<h5>".$row5['mileage']."</h5>";
-                                        echo "<h5>".$row5['capacity']."</h5>";
-                                        echo "<h5>".$row5['power']."</h5>";
-                                        echo "<h5>".$row5['fuel_consumption']."</h5>";
-                                        echo "<h5>".$row5['color']."</h5>";
-                                        echo "<h5>".$row5['seat_no']."</h5>";
-                                        echo "<h5>".$row5['door_no']."</h5>";
-                                        echo "<h5>".$price."</h5>";
-                                        echo "<h5>".$myFormatForView."</h5>";
-                                        echo "<h5>".$dealer."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row6['category']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$new_used."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$year."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row7['fuel']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row8['transmission']   ."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['origin']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['mileage']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['capacity']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['power']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['fuel_consumption']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['color']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['seat_no']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['door_no']."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$price."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$myFormatForView."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$dealer."</h5>";
 
 
                         }
