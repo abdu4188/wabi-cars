@@ -131,11 +131,11 @@
                 <center>
                     <h3>Choose the specific car for you</h3>
                     <h5>Do you have a car you want to buy in your mind? No worries, Just tell us what car fits your life.</h5><br>
-                    <form action="" method="post" class="form-group col-sm-6">
+                    <form action="assets/php/specificCar.php" method="post" class="form-group col-sm-6">
                         <div class="row">
                             <div class="col-sm-4">
                                 <label for="car-name">Select Make:</label>
-                                <select name="car-name" class="form-control">
+                                <select name="car-name" id="select-name" class="form-control">
                                     <option value="select_make">Choose make</option>
                                     <?php 
                                         $stmt = "SELECT DISTINCT name FROM car_name";
@@ -149,7 +149,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <label for="car-model">Select model:</label>
-                                <select name="car-model" class="form-control">
+                                <select name="car-model" id="select-model" class="form-control">
                                     <option value="select_model">Choose model</option>
                                     <?php 
                                         $stmt = "SELECT DISTINCT model FROM model WHERE id IN ( SELECT model_id FROM cars ";
@@ -160,6 +160,9 @@
                                         }
                                     ?>
                                 </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <br><input type="submit" value="Go" class="btn btn-primary">
                             </div>
                         </div>
                     </form>
@@ -230,5 +233,26 @@
             
          </div>
     </body>
+    <script>
+        $('#select-name').on('change', function () {
+            $('#select-model').empty();
+            
+            var selectedName = $(this).find('option:selected').val();
+            $.ajax({
+                type: "POST",
+                url: "assets/php/selectCar.php",
+                data: {selectedName: selectedName},
+                dataType: "json",
+                success: function (data) {
+                    $.each(data, function (i, value) { 
+                        $('#select-model').append('<option value = "'+value+'">'+value+'</option>');
+                    });
+                },
+                error: function(datat){
+                    console.log(datat);
+                },
+            });
+        })
+    </script>
    
 </html>

@@ -13,3 +13,4 @@ $(window).scroll(function (){
         $('.navbar').removeClass('bg-light');
     }
 });
+

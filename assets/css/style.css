@@ -368,6 +368,11 @@ ul, #myUL {
     .nav-item-used{
         margin-left: -0.5vw;
     }
+    .specific-car .btn{
+        margin-top: 1vh;
+        border-radius: 3vh !important;
+        width: 15vw !important;
+    }
 }
 .admin-login{
     margin-top: 15vh;
@@ -462,4 +467,9 @@ ul, #myUL {
 }
 .nav-item-used{
     margin-left: -0.5vw;
+}
+.specific-car .btn{
+    margin-top: 1vh;
+    border-radius: 2vh;
+    width: 8vw;
 }
