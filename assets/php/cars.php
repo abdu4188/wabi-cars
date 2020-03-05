@@ -47,7 +47,7 @@
             </nav>
 
             <div class="side-by-side">
-                <div class="sidenav">
+            <div class="sidenav">
                     <div class="card">
                         <div class="card-body">
                             <form class="form-inline header-search ">
@@ -59,10 +59,10 @@
                                 <ul id="myUL">
                                     <li><span class="caret">Catagories</span>
                                         <ul class="nested">
-                                        <a href=""><li>SUV</li></a>
-                                        <a href=""><li>Van</li></a>
-                                        <a href=""><li>MiniBus</li></a>
-                                        <a href=""><li>Truck</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=SUV"><li>SUV</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=VAN"><li>Van</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=MiniBus"><li>MiniBus</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=Truck"><li>Truck</li></a>
                                         </ul>
                                     </li>
                                 </ul>
@@ -74,7 +74,7 @@
                                         <ul class="nested">
                                         <form class="form-group">
                                             <label for="minmum">Min.</label>
-                                            <input class="form-control" type="number" name="minimum" placeholder="Min.">
+                                            <input class="form-control" type="number" name="minimum" placeholder="Min." value="0">
                                             <label for="maximum">Max.</label>
                                             <input class="form-control" type="number" name="maximum" placeholder="Max."><br>
                                             <button class="btn btn-outline-success " type="submit">Filter Result</button>
@@ -88,9 +88,9 @@
                                 <ul id="myUL">
                                     <li><span class="caret">Condition</span>
                                         <ul class="nested">
-                                        <a href=""><li>Used</li></a>
-                                        <a href=""><li>New</li></a>
-                                        <a href=""><li>Used Abroad</li></a>
+                                        <a href="filtered_by_status.php?status=3"><li>Used</li></a>
+                                        <a href="filtered_by_status.php?status=1"><li>New</li></a>
+                                        <a href="filtered_by_status.php?status=2"><li>Used Abroad</li></a>
                                         </ul>
                                     </li>
                                 </ul>
@@ -98,13 +98,12 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="car-list">
                     <div class="row">
                         <div class="for-sale col-sm-6 col-6">
                             <h5>cars for sale</h5>
                         </div>
-                        <div class="col-sm-6 col-6">
+                        <!-- <div class="col-sm-6 col-6">
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                    sort <i class="fa fa-filter"></i>
@@ -116,7 +115,7 @@
                                     <a class="dropdown-item" href="#">By Price</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <?php

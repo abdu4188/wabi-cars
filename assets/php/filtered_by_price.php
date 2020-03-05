@@ -1,6 +1,7 @@
 <?php
  require 'db.php';
- $car_name = $_GET['name'];
+ $minPrice = $_POST['minimum'];
+ $maxPrice = $_POST['maximum'];
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +49,7 @@
             </nav>
 
             <div class="side-by-side">
-            <div class="sidenav">
+                <div class="sidenav">
                     <div class="card">
                         <div class="card-body">
                             <form class="form-inline header-search ">
@@ -121,10 +122,12 @@
                     </div>
 
                     <?php
-                    
-                        $stmt = "SELECT * FROM cars WHERE name_id IN (SELECT id FROM car_name WHERE name = '$car_name') ORDER BY time_created";
-                        $result= mysqli_query($conn,$stmt);
-                        while($row = mysqli_fetch_array($result)){
+
+                        $stmt = $conn ->prepare("SELECT * FROM cars WHERE price  BETWEEN ? AND ?");
+                        $stmt->bind_param('ss', $minPrice, $maxPrice);
+                        $stmt->execute();
+                        $result= $stmt->get_result();
+                        while($row = $result->fetch_assoc()){
                             $year = $row['year'];
                             $time = strtotime($row['time_created']);
                             $myFormatForView = date("m/d/y g:i A", $time);

@@ -88,6 +88,7 @@ $seat_material = "";
                         elseif ($row['new_or_used'] == 3) {
                             $new_used = 'Used';
                         }
+                        $dealer = '';
 
                         $sql = "SELECT * FROM dealer WHERE id = ".$row['dealer_id'];
                         $resultt = mysqli_query($conn, $sql);

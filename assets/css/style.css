@@ -290,7 +290,9 @@ ul, #myUL {
 .car-list a{
     color: #1b6b99;
 }
-
+.dropdown-toggle{
+    color: #ffffff !important;
+}
 
 
 

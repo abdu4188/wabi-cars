@@ -1,6 +1,6 @@
 <?php
  require 'db.php';
- $car_name = $_GET['name'];
+ $status = $_GET['status'];
 ?>
 
 <!DOCTYPE html>
@@ -121,10 +121,12 @@
                     </div>
 
                     <?php
-                    
-                        $stmt = "SELECT * FROM cars WHERE name_id IN (SELECT id FROM car_name WHERE name = '$car_name') ORDER BY time_created";
-                        $result= mysqli_query($conn,$stmt);
-                        while($row = mysqli_fetch_array($result)){
+
+                        $stmt = $conn ->prepare("SELECT * FROM cars WHERE new_or_used = ?");
+                        $stmt->bind_param('i', $status);
+                        $stmt->execute();
+                        $result= $stmt->get_result();
+                        while($row = $result->fetch_assoc()){
                             $year = $row['year'];
                             $time = strtotime($row['time_created']);
                             $myFormatForView = date("m/d/y g:i A", $time);

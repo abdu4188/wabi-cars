@@ -1,6 +1,6 @@
 <?php
  require 'db.php';
- $car_name = $_GET['name'];
+ $catagory = $_GET['catagory'];
 ?>
 
 <!DOCTYPE html>
@@ -121,8 +121,8 @@
                     </div>
 
                     <?php
-                    
-                        $stmt = "SELECT * FROM cars WHERE name_id IN (SELECT id FROM car_name WHERE name = '$car_name') ORDER BY time_created";
+
+                        $stmt= "SELECT * FROM cars WHERE details_id IN (SELECT id FROM details WHERE category_id IN ( SELECT id FROM category WHERE category = '$catagory')) ORDER BY time_created";
                         $result= mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             $year = $row['year'];
