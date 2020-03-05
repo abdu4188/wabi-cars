@@ -14,10 +14,12 @@
         <link rel="stylesheet" href="assets/css/owl.carousel.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/fontawesome.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
         <script src="assets/js/jquery-3.4.1.min.js"></script>
         <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
         <script src="assets/js/script.js"></script>
         <script src="assets/js/owl.carousel.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     </head>
     <body>
         <div class="body-container">
@@ -37,7 +39,7 @@
                         </li>
                     </ul>
                     <form class="form-inline header-search my-2 my-lg-0">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search" name="search">
                         <button class="btn btn-outline-success " type="submit">Search</button>
                     </form>
                 </div>
@@ -229,6 +231,13 @@
             </footer>
             
          </div>
+         <script type="text/javascript">
+              $(function() {
+                 $( "#search" ).autocomplete({
+                   source: 'assets//php//search.php',
+                 });
+              });
+        </script>
     </body>
    
 </html>
