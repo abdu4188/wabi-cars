@@ -67,14 +67,14 @@
             <div class="models">
                 <center>
                     
-                <h3>Choose cars by model</h3><br><br>
+                <h3>Choose cars by make</h3><br><br>
                 <div class="pill-tab">
                     <!-- Nav pills -->
                     <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
-                        <a class="nav-link active" data-toggle="pill" href="#new">New</a>
+                        <a class="nav-link  active" data-toggle="pill" href="#new">New</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item nav-item-used">
                         <a class="nav-link" data-toggle="pill" href="#used">Used</a>
                         </li>
                     
@@ -91,7 +91,7 @@
                                 $stmt = "SELECT DISTINCT name FROM car_name WHERE id IN (SELECT name_id FROM cars WHERE new_or_used = 1 OR new_or_used = 2)";
                                 if ($result2= mysqli_query($conn, $stmt)) {
                                     while($row2 = mysqli_fetch_array($result2)){
-                                        echo '<div class="col-sm-6 col-xs-6">';
+                                        echo '<div class="col-sm-5 col-xs-6">';
                                         echo '<a href="assets/php/cars_models.php?name='.$row2['name'].'">'.$row2['name'].'</a>';
                                         echo '</div>';
                                     }
@@ -127,6 +127,44 @@
                 </center>
             </div>
 
+            <div class="specific-car col-sm-12">
+                <center>
+                    <h3>Choose the specific car for you</h3>
+                    <h5>Do you have a car you want to buy in your mind? No worries, Just tell us what car fits your life.</h5><br>
+                    <form action="" method="post" class="form-group col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="car-name">Select Make:</label>
+                                <select name="car-name" class="form-control">
+                                    <option value="select_make">Choose make</option>
+                                    <?php 
+                                        $stmt = "SELECT DISTINCT name FROM car_name";
+                                        if ($result = mysqli_query($conn, $stmt)) {
+                                            while($row = mysqli_fetch_array($result)){
+                                                echo '<option value = "'.$row['name'].'">'.$row['name'].'</option>';
+                                            }
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="car-model">Select model:</label>
+                                <select name="car-model" class="form-control">
+                                    <option value="select_model">Choose model</option>
+                                    <?php 
+                                        $stmt = "SELECT DISTINCT model FROM model WHERE id IN ( SELECT model_id FROM cars ";
+                                        if ($result = mysqli_query($conn, $stmt)) {
+                                            while($row = mysqli_fetch_array($result)){
+                                                echo '<option value = "'.$row['name'].'">'.$row['name'].'</option>';
+                                            }
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </center>
+            </div>
 
             <div class="recent-cars col-sm-12">
                 <center>

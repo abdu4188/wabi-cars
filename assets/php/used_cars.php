@@ -124,8 +124,28 @@
                         $stmt= "SELECT * FROM cars WHERE new_or_used = 3 ORDER BY time_created";
                         $result= mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
+                            $year = $row['year'];
                             $time = strtotime($row['time_created']);
                             $myFormatForView = date("m/d/y g:i A", $time);
+                            if ($row['new_or_used'] == 1) {
+                                $new_used = "New";
+                            }
+                            elseif($row['new_or_used'] == 2){
+                                $new_used = "Used abroad";
+                            }
+                            elseif($row['new_or_used'] == 3){
+                                $new_used = "Used";
+                            }
+                            $sql = "SELECT transmission_id FROM details WHERE id =".$row['details_id'];
+                            $transmissionResult = mysqli_query($conn, $sql);
+                            while($transmissionRow = mysqli_fetch_array($transmissionResult)){
+                                if ($transmissionRow['transmission_id'] == 1) {
+                                    $transmission = "Automatic";
+                                }
+                                elseif ($transmissionRow['transmission_id'] == 2) {
+                                    $transmission = "Manual";
+                                }
+                            }
                     
                             echo '<div class="card">';
                                 echo '<div class="card-body">';
@@ -147,14 +167,14 @@
                                         echo '<div class="col-sm-4 col-6 ">';
                                             
                                             echo '<h5><strong>'.$row3['name'].' '.$row4['model'].'</strong></h5>'; 
-                                            echo '<h6>Used - Manual shift - 2016</h6>';
+                                            echo '<h6>'.$new_used.' - '.$transmission.' - '.$year.'</h6>';
                                             echo '<p>'.$myFormatForView.'</p>';
-                                            echo '<p>'.$row['price'].' Birr</p></a>';
+                                            echo '<p>'.$row['price'].'</p></a>';
                                             
                                         echo '</div>';
 
                                         echo '<div class="col-sm-4 col-12">';
-                                            echo '<a href=""><i class="fa fa-2x fa-phone">call</i></a>';
+                                            echo '<a href="tel:0941889238"><i class="fa fa-2x fa-phone">call</i></a>';
                                             echo '<a href=""><i class="fab fa-2x fa-whatsapp"></i></a>';
                                             echo '<a href=""><i class="fab fa-2x fa-telegram"></i></a>';
                                         echo '</div>';
