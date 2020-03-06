@@ -73,7 +73,7 @@
                                 <ul id="myUL">
                                     <li><span class="caret">Price Range</span>
                                         <ul class="nested">
-                                        <form class="form-group">
+                                        <form class="form-group" action="filtered_by_price.php" method="POST">
                                             <label for="minmum">Min.</label>
                                             <input class="form-control" type="number" name="minimum" placeholder="Min." value="0">
                                             <label for="maximum">Max.</label>
@@ -172,7 +172,7 @@
                                             echo '<h5><strong>'.$row3['name'].' '.$row4['model'].'</strong></h5>'; 
                                             echo '<h6>'.$new_used.' - '.$transmission.' - '.$year.'</h6>';
                                             echo '<p>'.$myFormatForView.'</p>';
-                                            echo '<p>'.$row['price'].'</p></a>';
+                                            echo '<p>'.$row['price'].' Birr</p></a>';
                                             
                                         echo '</div>';
 

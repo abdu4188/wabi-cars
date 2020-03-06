@@ -241,7 +241,7 @@ $seat_material = "";
                                         echo "<h5 style= 'padding-top: 0.25vh'>".$row5['color']."</h5>";
                                         echo "<h5 style= 'padding-top: 0.25vh'>".$row5['seat_no']."</h5>";
                                         echo "<h5 style= 'padding-top: 0.25vh'>".$row5['door_no']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$price."</h5>";
+                                        echo "<h5 style= 'padding-top: 0.25vh'>".$price." Birr</h5>";
                                         echo "<h5 style= 'padding-top: 0.25vh'>".$myFormatForView."</h5>";
                                         echo "<h5 style= 'padding-top: 0.25vh'>".$dealer."</h5>";
 
