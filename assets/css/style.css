@@ -478,3 +478,16 @@ ul, #myUL {
 .spec h5{
     padding-top: 1vh !important;
 }
+.car-names{
+    margin-bottom: 5vh;
+}
+.section{
+    margin-top: 20vh !important;
+    margin-bottom: 20vh !important;
+}
+.specification-values{
+    margin-left: 20vw !important;
+}
+.feature-value i, .feature-value h5{
+    margin-left: 20vw !important;
+}

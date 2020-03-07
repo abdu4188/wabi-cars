@@ -66,7 +66,7 @@
                 
             </header>
 
-            <div class="models">
+            <div class="models section">
                 <center>
                     
                 <h3>Choose cars by make</h3><br><br>
@@ -114,7 +114,7 @@
                                     $stmt = "SELECT DISTINCT name FROM car_name WHERE id IN (SELECT name_id FROM cars WHERE new_or_used = 3)";
                                     if ($result2= mysqli_query($conn, $stmt)) {
                                         while($row2 = mysqli_fetch_array($result2)){
-                                            echo '<div class="col-sm-6 col-xs-6">';
+                                            echo '<div class="col-sm-6 col-xs-6 car-names">';
                                             echo '<a href="assets/php/cars_models.php?name='.$row2['name'].'">'.$row2['name'].'</a>';
                                             echo '</div>';
                                         }
@@ -129,7 +129,7 @@
                 </center>
             </div>
 
-            <div class="specific-car col-sm-12">
+            <div class="specific-car col-sm-12 section">
                 <center>
                     <h3>Choose the specific car for you</h3>
                     <h5>Do you have a car you want to buy in your mind? No worries, Just tell us what car fits your life.</h5><br>
@@ -171,7 +171,7 @@
                 </center>
             </div>
 
-            <div class="recent-cars col-sm-12">
+            <div class="recent-cars col-sm-12 section">
                 <center>
                     <h3>Recently posted cars for sale</h3><br><br>
 

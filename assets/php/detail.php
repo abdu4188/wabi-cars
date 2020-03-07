@@ -192,121 +192,275 @@ $seat_material = "";
                 <br><br><br><br>
                 
                 <div class="detail-info row col-sm-12">
+                    <div class="row col-sm-6 card" style="height: 100%; width: 100%; margin-right: 1vw;">
+                        <div class="card-header">
+                            <h4><strong><center>Specification</center></strong></h4>
+                        </div>
+                        <div class="card-body">
+                            <table>
+                                <?php
+                                $stmt5="SELECT * FROM details WHERE id =". $row['details_id'];
+                                $result5=mysqli_query($conn,$stmt5);
+                                while($row5 = mysqli_fetch_array($result5)){
+                                    $stmt6="SELECT * FROM category WHERE id =". $row5['category_id'];
+                                    $result6=mysqli_query($conn,$stmt6);
+                                    while($row6 = mysqli_fetch_array($result6)){
+                                        $stmt7="SELECT * FROM fuel WHERE id =". $row5['fuel_id'];
+                                        $result7=mysqli_query($conn,$stmt7);
+                                        while($row7 = mysqli_fetch_array($result7)){
+                                            $stmt8="SELECT * FROM transmission WHERE id =". $row5['transmission_id'];
+                                            $result8=mysqli_query($conn,$stmt8);
+                                            while($row8 = mysqli_fetch_array($result8)){
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Category:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row6['category']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Status:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$new_used."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Year:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$year."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Fuel:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row7['fuel']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Transmission:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row8['transmission']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Origin:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row5['origin']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Mileage:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row5['mileage']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Capacity:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row5['capacity']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Power:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row5['power']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Fuel consumption:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row5['fuel_consumption']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Color:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row5['color']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Number of seats:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row5['seat_no']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Number of doors:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$row5['door_no']."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Price:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$price." Birr</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Date posted:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$myFormatForView."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+
+                                                echo '<tr>';
+                                                echo '<td>';
+                                                echo '<h5><strong>Dealership:</strong></h5>';
+                                                echo '</td>';
+                                                echo '<td>';
+                                                echo '<h5 class="specification-values">'.$dealer."</h5>";
+                                                echo '</td>';
+                                                echo '</tr>';
+                                            }
+                                        }
+                                    }
+                                }
+                                ?>
+                            </table>
+                        </div>
+                    </div>
                     <?php
-                        echo '<div class="row col-sm-6 card" style="height: 95vh;  margin-right: 1vw;">';
-                        echo '<div class="row card-body">';
-                        echo '<div class="col-sm-6">';
-                        echo '<center><h4>Specifications</h4></center><br>';
-                        echo '<h5><strong>Category:</strong></h5>';
-                        echo '<h5><strong>Status:</strong></h5>';
-                        echo '<h5><strong>Year:</strong></h5>';
-                        echo '<h5><strong>Fuel:</strong></h5>';
-                        echo '<h5><strong>Transmission:</strong></h5>';
-                        echo '<h5><strong>Origin:</strong></h5>';
-                        echo '<h5><strong>Mileage:</strong></h5>';
-                        echo '<h5><strong>Capacity:</strong></h5>';
-                        echo '<h5><strong>Power:</strong></h5>';
-                        echo '<h5><strong>Fuel consumption:</strong></h5>';
-                        echo '<h5><strong>Color:</strong></h5>';
-                        echo '<h5><strong>Seat Number:</strong></h5>';
-                        echo '<h5><strong>Door Number:</strong></h5>';
-                        echo '<h5><strong>Price:</strong></h5>';
-                        echo '<h5><strong>Date posted:</strong></h5>';
-                        echo '<h5><strong>Dealership:</strong></h5>';
-                        echo '</div>';
-                        echo '<div class="col-sm-6" style="margin-top: 3.1vh;">';
-                        $stmt5="SELECT * FROM details WHERE id =". $row['details_id'];
-                        $result5=mysqli_query($conn,$stmt5);
-                        while($row5 = mysqli_fetch_array($result5)){
-                            $stmt6="SELECT * FROM category WHERE id =". $row5['category_id'];
-                            $result6=mysqli_query($conn,$stmt6);
-                            while($row6 = mysqli_fetch_array($result6)){
-                                $stmt7="SELECT * FROM fuel WHERE id =". $row5['fuel_id'];
-                                $result7=mysqli_query($conn,$stmt7);
-                                while($row7 = mysqli_fetch_array($result7)){
-                                    $stmt8="SELECT * FROM transmission WHERE id =". $row5['transmission_id'];
-                                    $result8=mysqli_query($conn,$stmt8);
-                                    while($row8 = mysqli_fetch_array($result8)){
-                                        echo '<br><br>';
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row6['category']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$new_used."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$year."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row7['fuel']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row8['transmission']   ."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['origin']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['mileage']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['capacity']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['power']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['fuel_consumption']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['color']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['seat_no']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$row5['door_no']."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$price." Birr</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$myFormatForView."</h5>";
-                                        echo "<h5 style= 'padding-top: 0.25vh'>".$dealer."</h5>";
-
-
-                        }
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
+                        
                     }
                 }
-            }
-        }
-    }
-}
+                    }
+                
                     ?>
                     <div class="contact col-sm-6 card">
+                        <div class="card-header">
+                        <center>
+                            <h4>Features</h4>
+                        </center>
+                        </div>
                         <div class="card-body">
-                            <center>
-                                <h4>Features</h4>
-                            </center><br>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h5>Seat material:</h5>
-                                    <h5>AC:</h5>
-                                    <h5>Air bag:</h5>
-                                    <h5>Rear camera:</h5>
-                                    <h5>Cd player:</h5>
-                                    <h5>Fm Radio:</h5>
-                                </div>
-                                <div class="col-sm-6">
-                                    <?php
-                                    echo "<h5>".$seat_material."</h5>";
-                                    if ($ac == 1) {
-                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    else{
-                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    if ($air_bag == 1) {
-                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    else{
-                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    if ($rear_camera == 1) {
-                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    else{
-                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    if ($cd_player == 1) {
-                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    else{
-                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    if ($fm_radio == 1) {
-                                        echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
-                                    }
-                                    else{
-                                        echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i>';
-                                    }
-                                    ?>
-                                </div>
-                            </div><br>
+                        <table>
+                                <?php
+                                
+                                echo "<tr>";
+                                echo "<td>";
+                                echo "<h5><strong>Seat material:</strong></h5>";
+                                echo "</td>";
+                                echo '<td class="feature-value">';
+                                echo "<h5>".$seat_material."</h5>";
+                                echo "</td>";
+                                echo "</tr>";
+
+                                echo "<tr>";
+                                echo "<td>";
+                                echo "<h5><strong>AC:</strong></h5>";
+                                echo "</td>";
+                                echo '<td class="feature-value">';
+                                if ($ac == 1) {
+                                    echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                else{
+                                    echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                echo "</td>";
+                                echo "</tr>";
+
+                                echo "<tr>";
+                                echo "<td>";
+                                echo "<h5><strong>Air bag:</strong></h5>";
+                                echo "</td>";
+                                echo '<td class="feature-value">';
+                                if ($air_bag == 1) {
+                                    echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                else{
+                                    echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                echo "</td>";
+                                echo "</tr>";
+
+                                echo "<tr>";
+                                echo "<td>";
+                                echo "<h5><strong>Rear camera:</strong></h5>";
+                                echo "</td>";
+                                echo '<td class="feature-value">';
+                                if ($rear_camera == 1) {
+                                    echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                else{
+                                    echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                echo "</td>";
+                                echo "</tr>";
+
+                                echo "<tr>";
+                                echo "<td>";
+                                echo "<h5><strong>Cd player:</strong></h5>";
+                                echo "</td>";
+                                echo '<td class="feature-value">';
+                                if ($cd_player == 1) {
+                                    echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                else{
+                                    echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                echo "</td>";
+                                echo "</tr>";
+
+                                echo "<tr>";
+                                echo "<td>";
+                                echo "<h5><strong>Fm radio:</strong></h5>";
+                                echo "</td>";
+                                echo '<td class="feature-value">';
+                                if ($fm_radio == 1) {
+                                    echo '<i class="fa fa-check-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                else{
+                                    echo '<i class="fa fa-times-circle fa-2x" style="font-size: 1.6em;"></i><br>';
+                                }
+                                echo "</td>";
+                                echo "</tr>";
+
+                                ?>
+                            </table>
+                            <br>
                             <center>
                             <h4>Contact</h4>
                             </center>
