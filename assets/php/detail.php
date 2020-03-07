@@ -45,7 +45,7 @@ $seat_material = "";
     <body>
         <div class="body-container">
             <nav class="navbar hidden fixed-top navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#"><img src="../images/wabi.png"></a>
+                <a class="navbar-brand" href="/wabi-cars"><img src="../images/wabi_logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -192,7 +192,7 @@ $seat_material = "";
                 <br><br><br><br>
                 
                 <div class="detail-info row col-sm-12">
-                    <div class="row col-sm-6 card" style="height: 100%; width: 100%; margin-right: 1vw;">
+                    <div class="row specification-card col-sm-6 card" style="height: 100%; width: 100%; margin-right: 1vw;">
                         <div class="card-header">
                             <h4><strong><center>Specification</center></strong></h4>
                         </div>

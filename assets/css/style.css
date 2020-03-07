@@ -141,8 +141,8 @@ header{
     margin-left: 0vw;
 }
 .car-detail img{
-    width: 35vw; 
-    height: 40vh;
+    width: 100%; 
+    height: auto;
 }
 .detail-info{
     margin-top: 10vh;
@@ -375,6 +375,23 @@ ul, #myUL {
         border-radius: 3vh !important;
         width: 15vw !important;
     }
+    .car-detail img{
+        max-width: 100% !important;
+        height: auto !important;
+        margin-right: 10vw !important;
+    }
+    .lSGallery img{
+        width: 30vw !important;
+        height: 10vh !important;
+    }
+    .specification-card{
+        margin-left: 5vw !important;
+        width: 100% !important;
+        margin-bottom: 10vh !important;
+    }
+    .specification-values{
+        margin-left: 5vw !important;
+    }
 }
 .admin-login{
     margin-top: 15vh;
@@ -486,7 +503,7 @@ ul, #myUL {
     margin-bottom: 20vh !important;
 }
 .specification-values{
-    margin-left: 20vw !important;
+    margin-left: 20vw ;
 }
 .feature-value i, .feature-value h5{
     margin-left: 20vw !important;
