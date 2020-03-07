@@ -508,3 +508,6 @@ ul, #myUL {
 .feature-value i, .feature-value h5{
     margin-left: 20vw !important;
 }
+.shadow-none{
+    box-shadow: none;
+}
