@@ -23,7 +23,7 @@
     </head>
     <body>
         <div class="body-container">
-            <nav class="navbar hidden fixed-top navbar-expand-lg navbar-light " id="navbar">
+            <nav class="navbar hidden fixed-top navbar-expand-lg navbar-light shadow-none" id="navbar">
                 <a class="navbar-brand" href="/wabi-cars"><img src="assets/images/wabi_logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
