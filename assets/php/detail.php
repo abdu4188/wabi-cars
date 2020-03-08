@@ -14,11 +14,12 @@ $seat_material = "";
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link type="text/css" rel="stylesheet" href="../css/lightslider.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
         <script src="../js/jquery-3.4.1.min.js"></script>
-        <script src="../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-        <script src="../js/lightslider.js"></script>
+        <script src="../bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <!-- <script src="../js/script.js"></script>   -->
         <script>
             $(document).ready(function() {
@@ -63,7 +64,7 @@ $seat_material = "";
                         </li>
                     </ul>
                     <form class="form-inline header-search my-2 my-lg-0">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success " type="submit">Search</button>
                     </form>
                 </div>
@@ -546,5 +547,12 @@ $seat_material = "";
             
         </div>
     </body>
+    <script type="text/javascript">
+        $(function() {
+            $( "#search" ).autocomplete({
+            source: 'assets//php//search.php',
+            });
+        });
+    </script>
 
 </html>

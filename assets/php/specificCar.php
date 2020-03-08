@@ -15,9 +15,11 @@
         <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
         <script src="../js/jquery-3.4.1.min.js"></script>
         <script src="../bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
         <script src="../js/script.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     </head>
     <body>
         <div class="body-container">
@@ -42,7 +44,7 @@
                         </li>
                     </ul>
                     <form class="form-inline header-search my-2 my-lg-0">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success " type="submit">Search</button>
                     </form>
                 </div>
@@ -53,7 +55,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form class="form-inline header-search ">
-                                <input class="form-control" type="search" placeholder="Search" aria-label="Search"><br><br>
+                                <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search"><br><br>
                                 <button class="btn btn-outline-success " type="submit">Search</button>
                             </form><br>
 
@@ -209,5 +211,12 @@
         });
         }
 
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $( "#search" ).autocomplete({
+            source: 'assets//php//search.php',
+            });
+        });
     </script>
 </html>
