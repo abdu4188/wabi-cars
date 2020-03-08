@@ -364,7 +364,6 @@ ul, #myUL {
         background-color: rgb(230, 230, 230);
         width: 20vw !important;
         padding-right: 0vw;
-        /* margin-left: -32vw; */
         border-radius: 2vw !important;
     }
     .nav-item-used{
@@ -470,7 +469,7 @@ ul, #myUL {
 .specific-car{
     margin-top: 10vh;
 }
-.specific-car h5{
+.specific-car h6{
     color: #1b6b99;
 }
 .specific-car h3{

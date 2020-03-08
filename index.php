@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/owl.carousel.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/fontawesome.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.10.2/css/fontawesome.css"> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
         <script src="assets/js/jquery-3.4.1.min.js"></script>
         <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
@@ -72,6 +72,7 @@
                 <h3>Choose cars by make</h3><br><br>
                 <div class="pill-tab">
                     <!-- Nav pills -->
+                    <center>
                     <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
                         <a class="nav-link  active" data-toggle="pill" href="#new">New</a>
@@ -81,6 +82,7 @@
                         </li>
                     
                     </ul>
+                    </center>
 
                     <!-- Tab panes -->
                     <div class="tab-content">
@@ -93,14 +95,15 @@
                                 $stmt = "SELECT DISTINCT name FROM car_name WHERE id IN (SELECT name_id FROM cars WHERE new_or_used = 1 OR new_or_used = 2)";
                                 if ($result2= mysqli_query($conn, $stmt)) {
                                     while($row2 = mysqli_fetch_array($result2)){
-                                        echo '<div class="col-sm-5 col-xs-6">';
+                                        echo '<div class="col-sm-5 col-5 col-md-5>';
                                         echo '<a href="assets/php/cars_models.php?name='.$row2['name'].'">'.$row2['name'].'</a>';
                                         echo '</div>';
+                                        echo '<br> <br>';
                                     }
                                 }
                             ?>
                             
-                                    </div>
+                                    </div> 
                                 </div>
                                 <div class="col-sm-4"></div>
                             </div>
@@ -132,7 +135,7 @@
             <div class="specific-car col-sm-12 section">
                 <center>
                     <h3>Choose the specific car for you</h3>
-                    <h5>Do you have a car you want to buy in your mind? No worries, Just tell us what car fits your life.</h5><br>
+                    <h6>Do you have a car you want to buy in your mind? No worries, Just tell us what car fits your life.</h6><br>
                     <form action="assets/php/specificCar.php" method="post" class="form-group col-sm-6">
                         <div class="row">
                             <div class="col-sm-4">
