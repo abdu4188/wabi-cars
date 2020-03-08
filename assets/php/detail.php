@@ -333,7 +333,7 @@ $seat_material = "";
                                                 echo '<h5><strong>Price:</strong></h5>';
                                                 echo '</td>';
                                                 echo '<td>';
-                                                echo '<h5 class="specification-values">'.$price." Birr</h5>";
+                                                echo '<h5 class="specification-values">'.number_format($price) ." Birr</h5>";
                                                 echo '</td>';
                                                 echo '</tr>';
 

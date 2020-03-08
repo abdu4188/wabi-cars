@@ -195,7 +195,7 @@
                                         echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="uploads/'. $row3["path_1"].'" style="width: 15vw; height: 15vh;">';
                                         echo "<h3>". $row2['name']."</h3>";
                                         echo "<h6>".$myFormatForView."</h6>";
-                                        echo "<h6> ".$row['price']."Birr</h6> </a>";
+                                        echo "<h6> ". number_format($row['price']) ."Birr</h6> </a>";
                                         if($row['new_or_used']==0){echo "<p><strong>New</strong></p>";}
                                         else{echo "<p><strong>Used</strong></p>";}
                                     echo '</div>';

@@ -172,7 +172,7 @@
                                             echo '<h5><strong>'.$row3['name'].' '.$row4['model'].'</strong></h5>'; 
                                             echo '<h6>'.$new_used.' - '.$transmission.' - '.$year.'</h6>';
                                             echo '<p>'.$myFormatForView.'</p>';
-                                            echo '<p>'.$row['price'].' Birr</p></a>';
+                                            echo '<p>'.number_format($row['price']) .' Birr</p></a>';
                                             
                                         echo '</div>';
 

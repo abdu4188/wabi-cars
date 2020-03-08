@@ -84,7 +84,7 @@
                             <label for="model">Model:</label>
                             <input type="text" name="model" class="form-control" placeholder="model" required><br>
                             <label for="price">Price:</label>
-                            <input type="text" name="price" class="form-control" placeholder="price" required><br>
+                            <input type="number" name="price" class="form-control" placeholder="price" required><br>
                             <label for="image1">Image 1(required):</label>
                             <input type="file" class="form-control" name="image1" required><br>
                             <label for="image3">Image 3:</label>
