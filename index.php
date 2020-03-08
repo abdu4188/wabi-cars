@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Wabi Cars</title>
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/owl.carousel.css">
         <link rel="stylesheet" href="assets/css/style.css">
@@ -95,7 +95,7 @@
                                 $stmt = "SELECT DISTINCT name FROM car_name WHERE id IN (SELECT name_id FROM cars WHERE new_or_used = 1 OR new_or_used = 2)";
                                 if ($result2= mysqli_query($conn, $stmt)) {
                                     while($row2 = mysqli_fetch_array($result2)){
-                                        echo '<div class="col-sm-5 col-5 col-md-5>';
+                                        echo '<div class="col-sm-5 col-5 col-md-5">';
                                         echo '<a href="assets/php/cars_models.php?name='.$row2['name'].'">'.$row2['name'].'</a>';
                                         echo '</div>';
                                         echo '<br> <br>';
@@ -199,7 +199,8 @@
                                         echo "<h3>". $row2['name']."</h3>";
                                         echo "<h6>".$myFormatForView."</h6>";
                                         echo "<h6> ". number_format($row['price']) ."Birr</h6> </a>";
-                                        if($row['new_or_used']==0){echo "<p><strong>New</strong></p>";}
+                                        if($row['new_or_used']==1){echo "<p><strong>New</strong></p>";}
+                                        elseif($row['new_or_used']==2){echo "<p><strong>Used Abroad</strong></p>";}
                                         else{echo "<p><strong>Used</strong></p>";}
                                     echo '</div>';
                                     $count++;

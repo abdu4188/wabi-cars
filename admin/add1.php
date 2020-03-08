@@ -1,6 +1,50 @@
 <?php
     require 'session.php';
     require '../assets/php/db.php';
+    // require_once("../assets/lib/Tinify/Exception.php");
+    // require_once("../assets/lib/Tinify/ResultMeta.php");
+    // require_once("../assets/lib/Tinify/Result.php");
+    // require_once("../assets/lib/Tinify/Source.php");
+    // require_once("../assets/lib/Tinify/Client.php");
+    // require_once("../assets/lib/Tinify.php");
+
+    // \Tinify\setKey("FJWg9RYsWltqkyHLPqLT56F4TGxSCTGW");
+
+    function compressImage($source, $destination, $quality) {
+
+        $exploded = explode('.',$source);
+        $ext = $exploded[count($exploded) - 1];
+
+        if (preg_match('/jpg|jpeg/i',$ext))
+        {
+            $imageTmp=imagecreatefromjpeg($source);
+            imagejpeg($imageTmp, $destination, $quality);
+        }
+        else if (preg_match('/png/i',$ext))
+        {
+            $quality = $quality/10;
+            $imageTmp=imagecreatefrompng($source);
+            imagepng($imageTmp, $destination, $quality);
+        }
+            
+        else if (preg_match('/gif/i',$ext))
+        {
+            $quality = $quality/10;
+            $imageTmp=imagecreatefromgif($source);
+            imagegif($imageTmp, $destination, $quality);
+        }
+        else if (preg_match('/bmp/i',$ext))
+        {
+            $quality = $quality/10;
+            $imageTmp=imagecreatefrombmp($source);
+            imagebmp($imageTmp, $destination, $quality);
+        }
+        else
+            return 0;
+        
+      
+      }
+      
 
     $image1 = '';
     $image2 = '';
@@ -11,50 +55,60 @@
 
     $target_dir = "../uploads/";
     if (!empty($_FILES['image1']['name'])) {
+       
         $temp = explode(".", $_FILES["image1"]["name"]);
         $newName = date('Ymdhis')."1";
         $newName = strval($newName) . "." . end($temp);
+        $newPath = '../uploads/'.$newName;
         move_uploaded_file($_FILES['image1']['tmp_name'], $target_dir . $newName);
+        compressImage($newPath, $newPath, 60);
         $image1 = $newName;
+        
     }
 
     if (!empty($_FILES['image2']['name'])) {
         $temp = explode(".", $_FILES["image2"]["name"]);
         $newName = date('Ymdhis')."2";
         $newName = strval($newName) . "." . end($temp);
+        $newPath = '../uploads/'.$newName;
         move_uploaded_file($_FILES['image2']['tmp_name'], $target_dir . $newName);
+        compressImage($newPath, $newPath, 60);
         $image2 = $newName;
     }
 
     if (!empty($_FILES['image3']['name'])) {
         $temp = explode(".", $_FILES["image3"]["name"]);
         $newName = date('Ymdhis')."3";
-        $newName = strval($newName) . "." . end($temp);
+        $newPath = '../uploads/'.$newName;
         move_uploaded_file($_FILES['image3']['tmp_name'], $target_dir . $newName);
+        compressImage($newPath, $newPath, 60);
         $image3 = $newName;
     }
 
     if (!empty($_FILES['image4']['name'])) {
         $temp = explode(".", $_FILES["image4"]["name"]);
         $newName = date('Ymdhis')."4";
-        $newName = strval($newName) . "." . end($temp);
+        $newPath = '../uploads/'.$newName;
         move_uploaded_file($_FILES['image4']['tmp_name'], $target_dir . $newName);
+        compressImage($newPath, $newPath, 60);
         $image4 = $newName;
     }
 
      if (!empty($_FILES['image5']['name'])) {
         $temp = explode(".", $_FILES["image5"]["name"]);
         $newName = date('Ymdhis')."5";
-        $newName = strval($newName) . "." . end($temp);
+        $newPath = '../uploads/'.$newName;
         move_uploaded_file($_FILES['image5']['tmp_name'], $target_dir . $newName);
+        compressImage($newPath, $newPath, 60);
         $image5 = $newName;
     }
 
      if (!empty($_FILES['image6']['name'])) {
         $temp = explode(".", $_FILES["image6"]["name"]);
         $newName = date('Ymdhis')."6";
-        $newName = strval($newName) . "." . end($temp);
+        $newPath = '../uploads/'.$newName;
         move_uploaded_file($_FILES['image6']['tmp_name'], $target_dir . $newName);
+        compressImage($newPath, $newPath, 60);
         $image6 = $newName;
     }
 
@@ -70,14 +124,5 @@
     $_SESSION['image4'] = $image4; 
     $_SESSION['image5'] = $image5; 
     $_SESSION['image6'] = $image6; 
-    echo $image1;
-
-    $stmt =" INSERT INTO image_last_name (name) VALUES $last_name";
-    if (mysqli_query($conn,$stmt)) {
-        
-    }
-    else{
-        echo "<script>alert('something went wrong</script>";
-    }
     header('Location: add2_page.php');
 ?>
