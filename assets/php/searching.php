@@ -1,5 +1,6 @@
 <?php
  require 'db.php';
+ $query = $_POST['search'];
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,7 @@
                             <a class="nav-link" href="used_cars.php">Used Cars</a>
                         </li>
                     </ul>
-                    <form class="form-inline header-search my-2 my-lg-0" method="POST" action="assets/php/searching.php">
+                    <form class="form-inline header-search my-2 my-lg-0">
                         <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
@@ -52,7 +53,7 @@
             <div class="sidenav">
                     <div class="card">
                         <div class="card-body">
-                            <form class="form-inline header-search " method="POST" action="assets/php/searching.php">
+                            <form class="form-inline header-search ">
                                 <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search"><br><br>
                                 <button class="btn btn-outline-success " type="submit">Search</button>
                             </form><br>
@@ -122,8 +123,11 @@
 
                     <?php
 
-                        $stmt= "SELECT * FROM cars ORDER BY time_created";
-                        $result= mysqli_query($conn,$stmt);
+                        $stmt= $conn -> prepare( "SELECT * FROM cars WHERE id IN ( SELECT id FROM car_name WHERE name like ? ) ORDER BY time_created");
+                        $stmt -> bind_param('s', $query);
+
+                        $stmt -> execute();
+                        $result= $stmt -> get_result();
                         while($row = mysqli_fetch_array($result)){
                             $year = $row['year'];
                             $time = strtotime($row['time_created']);

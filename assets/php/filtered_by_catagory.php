@@ -42,7 +42,7 @@
                             <a class="nav-link" href="used_cars.php">Used Cars</a>
                         </li>
                     </ul>
-                    <form class="form-inline header-search my-2 my-lg-0">
+                    <form class="form-inline header-search my-2 my-lg-0" method="POST" action="assets/php/searching.php">
                         <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success " type="submit">Search</button>
                     </form>
@@ -53,7 +53,7 @@
             <div class="sidenav">
                     <div class="card">
                         <div class="card-body">
-                            <form class="form-inline header-search ">
+                            <form class="form-inline header-search " method="POST" action="assets/php/searching.php">
                                 <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search"><br><br>
                                 <button class="btn btn-outline-success " type="submit">Search</button>
                             </form><br>
