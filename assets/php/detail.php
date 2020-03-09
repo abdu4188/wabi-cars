@@ -16,11 +16,14 @@ $seat_material = "";
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+        <link rel="stylesheet" href="../css/owl.carousel.css">
+        <link rel="stylesheet" href="../css/lightslider.css">
         <script src="../js/jquery-3.4.1.min.js"></script>
+        <script src="../js/lightslider.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <script src="../bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
         <script src="../js/script.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <!-- <script src="../js/script.js"></script>   -->
+
         <script>
             $(document).ready(function() {
 			$("#content-slider").lightSlider({
