@@ -11,6 +11,8 @@ $seat_material = "";
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Wabe Cars</title>
+        <meta name="description" content="Wabe Cars is an online platform that connects customers in Ethiopia that want to buy cars to dealerships. We strive to make the process of buying and selling cars in Ethiopia easier and convinient.">
+        <meta name="keywords" content="cars in Ethiopia, car dealerships, new cars, used cars, cars in addis ababa">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
@@ -23,6 +25,7 @@ $seat_material = "";
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <script src="../bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
         <script src="../js/script.js"></script>
+        
 
         <script>
             $(document).ready(function() {

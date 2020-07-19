@@ -9,6 +9,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>New cars for sale</title>
+        <meta name="description" content="Wabe Cars is an online platform that connects customers in Ethiopia that want to buy cars to dealerships. We strive to make the process of buying and selling cars in Ethiopia easier and convinient.">
+        <meta name="keywords" content="cars in Ethiopia, car dealerships, new cars, used cars, cars in addis ababa">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
