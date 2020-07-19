@@ -21,7 +21,7 @@
             <div class="col-sm-4 admin-login card">
                 <center>
                     <div class="card-header">
-                        <h3>Wabi cars Admin</h3>
+                        <h3>Wabe Cars Admin</h3>
                     </div>
                 </center>
                 <div class="card-body">

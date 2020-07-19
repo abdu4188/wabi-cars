@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Wabi Cars</title>
+        <title>Wabe Cars</title>
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/owl.carousel.css">
@@ -181,7 +181,7 @@
                     <div class="row">
                     <?php
                         $count=0;   
-                        $stmt= "SELECT * FROM cars ORDER BY time_created desc LIMIT 8";
+                        $stmt= "SELECT * FROM cars WHERE availability = 1 ORDER BY time_created desc LIMIT 8";
                         $result= mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             $time = strtotime($row['time_created']);
@@ -195,7 +195,7 @@
                                     while($row3 = mysqli_fetch_array($result3)){
                                         echo '';
                                         echo '<div class="col-sm-3">'; 
-                                        echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="uploads/'. $row3["path_1"].'" style="width: 15vw; height: 15vh;">';
+                                        echo '<a href="assets/php/detail.php?id='.$row["id"].'"><img src="uploads/'. $row3["path_1"].'" class="recently-image">';
                                         echo "<h3>". $row2['name']."</h3>";
                                         echo "<h6>".$myFormatForView."</h6>";
                                         echo "<h6> ". number_format($row['price']) ."Birr</h6> </a>";
@@ -230,7 +230,7 @@
                         <i class="fab fa-linkedin-in fa-2x logos"></i>
                         <i class="fab fa-skype fa-2x logos"></i>
                         <i class="fab fa-google-plus-g fa-2x logos"></i>
-                        <h5>2019 Wabi Cars</h5>
+                        <h5>2020 Wabe Cars</h5>
                         <h5>Powered by Genesis Technologies</h5>
                     </div>
             
@@ -267,5 +267,17 @@
             });
         })
     </script>
+    <style>
+    .recently-image {
+        width: 15vw;
+        height: 23vh;
+    }
+    @media (max-width: 978px) {
+        .recently-image {
+            width: 22vw;
+            height: 16vh;
+        }
+    }
+    </style>
    
 </html>

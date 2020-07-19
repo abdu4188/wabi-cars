@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="../assets/js/jquery.min.js"></script>
-    <title>Wabi cars admin</title>
+    <title>Wabe Cars admin</title>
 </head>
 <body class="side-body">
     <div id="mySidenav" class="side-nav">

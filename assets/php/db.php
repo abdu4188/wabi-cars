@@ -1,3 +1,3 @@
 <?php
-$conn= new mysqli("localhost","root","","wabi");
+$conn= new mysqli("localhost","root2","","wabi");
 ?>

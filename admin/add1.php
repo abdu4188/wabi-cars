@@ -1,17 +1,9 @@
 <?php
     require 'session.php';
     require '../assets/php/db.php';
-    // require_once("../assets/lib/Tinify/Exception.php");
-    // require_once("../assets/lib/Tinify/ResultMeta.php");
-    // require_once("../assets/lib/Tinify/Result.php");
-    // require_once("../assets/lib/Tinify/Source.php");
-    // require_once("../assets/lib/Tinify/Client.php");
-    // require_once("../assets/lib/Tinify.php");
 
-    // \Tinify\setKey("FJWg9RYsWltqkyHLPqLT56F4TGxSCTGW");
-
+    echo "<script>alert('here')</script>";
     function compressImage($source, $destination, $quality) {
-
         $exploded = explode('.',$source);
         $ext = $exploded[count($exploded) - 1];
 
@@ -55,7 +47,6 @@
 
     $target_dir = "../uploads/";
     if (!empty($_FILES['image1']['name'])) {
-       
         $temp = explode(".", $_FILES["image1"]["name"]);
         $newName = date('Ymdhis')."1";
         $newName = strval($newName) . "." . end($temp);

@@ -36,12 +36,12 @@
                 </div>
                 <div class="card-body">
                     <?php
-                        $stmt = "SELECT * FROM cars ORDER BY time_created";
+                        $stmt = "SELECT * FROM cars WHERE availability = 1 ORDER BY time_created";
                         $result= mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             $time = strtotime($row['time_created']);
                             $myFormatForView = date("m/d/y g:i A", $time);
-                            echo '<div class="card">';
+                            echo '<div class="card inner-card">';
                                 echo '<div class="card-body">';
                                     echo '<div class="row">';
                                         echo '<div class="col-sm-4 col-6">';
@@ -92,4 +92,9 @@ function closeNav() {
 }
 
 </script>
+<style>
+.inner-card {
+    box-shadow: none;
+}
+</style>
 </html>

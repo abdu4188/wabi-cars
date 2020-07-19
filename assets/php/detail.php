@@ -10,7 +10,7 @@ $seat_material = "";
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Wabi Cars</title>
+        <title>Wabe Cars</title>
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
@@ -76,7 +76,7 @@ $seat_material = "";
             
             <div class="car-detail col-sm-12">
                 <?php
-                    $stmt="SELECT * from cars WHERE id=$id";
+                    $stmt="SELECT * from cars WHERE availability = 1 AND id=$id";
                     $result=mysqli_query($conn,$stmt);
                     while($row = mysqli_fetch_array($result)){
                         $time = strtotime($row['time_created']);
@@ -487,13 +487,13 @@ $seat_material = "";
 
                     <?php
                     $count=0;
-                        $stmt="SELECT * FROM cars WHERE id=$id";
+                        $stmt="SELECT * FROM cars WHERE availability = 1 AND id=$id";
                         $result=mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             $year=$row['year'];
                         }
 
-                        $stmt="SELECT * FROM cars WHERE year BETWEEN $year-2 AND $year+2";
+                        $stmt="SELECT * FROM cars WHERE availability = 1 AND year BETWEEN $year-2 AND $year+2";
                         $result=mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             
@@ -541,7 +541,7 @@ $seat_material = "";
                         <i class="fab fa-linkedin-in fa-2x logos"></i>
                         <i class="fab fa-skype fa-2x logos"></i>
                         <i class="fab fa-google-plus-g fa-2x logos"></i>
-                        <h5>2019 Wabi Cars</h5>
+                        <h5>2020 Wabe Cars</h5>
                         <h5>Powered by Genesis Technologies</h5>
                     </div>
             

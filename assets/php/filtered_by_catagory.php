@@ -62,10 +62,9 @@
                                 <ul id="myUL">
                                     <li><span class="caret">Catagories</span>
                                         <ul class="nested">
-                                        <a href="filtered_by_catagory.php?catagory=SUV"><li>SUV</li></a>
-                                        <a href="filtered_by_catagory.php?catagory=VAN"><li>Van</li></a>
-                                        <a href="filtered_by_catagory.php?catagory=MiniBus"><li>MiniBus</li></a>
-                                        <a href="filtered_by_catagory.php?catagory=Truck"><li>Truck</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=Sedan"><li>Sedan</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=Compact"><li>Compact</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=Estate"><li>Estate</li></a>
                                         </ul>
                                     </li>
                                 </ul>
@@ -124,7 +123,7 @@
 
                     <?php
 
-                        $stmt= "SELECT * FROM cars WHERE details_id IN (SELECT id FROM details WHERE category_id IN ( SELECT id FROM category WHERE category = '$catagory')) ORDER BY time_created";
+                        $stmt= "SELECT * FROM cars WHERE availability = 1 AND details_id IN (SELECT id FROM details WHERE category_id IN ( SELECT id FROM category WHERE category = '$catagory')) ORDER BY time_created";
                         $result= mysqli_query($conn,$stmt);
                         while($row = mysqli_fetch_array($result)){
                             $year = $row['year'];

@@ -63,10 +63,9 @@
                                 <ul id="myUL">
                                     <li><span class="caret">Catagories</span>
                                         <ul class="nested">
-                                        <a href="filtered_by_catagory.php?catagory=SUV"><li>SUV</li></a>
-                                        <a href="filtered_by_catagory.php?catagory=VAN"><li>Van</li></a>
-                                        <a href="filtered_by_catagory.php?catagory=MiniBus"><li>MiniBus</li></a>
-                                        <a href="filtered_by_catagory.php?catagory=Truck"><li>Truck</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=Sedan"><li>Sedan</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=Compact"><li>Compact</li></a>
+                                        <a href="filtered_by_catagory.php?catagory=Estate"><li>Estate</li></a>
                                         </ul>
                                     </li>
                                 </ul>
@@ -125,7 +124,7 @@
 
                     <?php
 
-                        $stmt = $conn ->prepare("SELECT * FROM cars WHERE price  BETWEEN ? AND ?");
+                        $stmt = $conn ->prepare("SELECT * FROM cars WHERE availability = 1 AND price  BETWEEN ? AND ?");
                         $stmt->bind_param('ii', $minPrice, $maxPrice);
                         $stmt->execute();
                         $result= $stmt->get_result();
