@@ -474,7 +474,7 @@ $seat_material = "";
                             <br>
 
                             <h5><strong>Phone Number:</strong></h5>
-                            <p>0911223344</p>
+                            <p>0900818154</p>
                             <h5><strong>Email Us:</strong></h5>
                             <p>contact@wabi.com</p>
                         </div>

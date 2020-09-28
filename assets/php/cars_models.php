@@ -178,7 +178,7 @@
                                         echo '</div>';
 
                                         echo '<div class="col-sm-4 col-12">';
-                                            echo '<a href="tel:0941889238"><i class="fa fa-2x fa-phone">call</i></a>';
+                                            echo '<a href="tel:0900818154"><i class="fa fa-2x fa-phone">call</i></a>';
                                             echo '<a href=""><i class="fab fa-2x fa-whatsapp"></i></a>';
                                             echo '<a href=""><i class="fab fa-2x fa-telegram"></i></a>';
                                         echo '</div>';
