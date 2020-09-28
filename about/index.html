@@ -1,0 +1,230 @@
+<?php
+ require '../assets/php/db.php';
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wabe Cars</title>
+    <meta
+      name="description"
+      content="Wabe Cars is an online platform that connects customers in Ethiopia that want to buy cars to dealerships. We strive to make the process of buying and selling cars in Ethiopia easier and convinient."
+    />
+    <meta
+      name="keywords"
+      content="cars in Ethiopia, car dealerships, new cars, used cars, cars in addis ababa"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand:300,500"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/bootstrap-4.3.1-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/owl.carousel.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.10.2/css/fontawesome.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"
+    />
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../assets/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/owl.carousel.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <div class="body-container">
+      <nav
+        class="navbar hidden fixed-top navbar-expand-lg navbar-light shadow-none"
+        id="navbar"
+      >
+        <a class="navbar-brand" href="/wabi-cars"
+          ><img src="../assets/images/wabi_logo.png"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="..">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../assets/php/new_cars.php">New Cars</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../assets/php/used_cars.php"
+                >Used Cars</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container body-container">
+        <div class="text-center">
+          <h1>About Wabe Cars</h1>
+          <hr class="divider" />
+          <p class="header-text text-center">Wabe Cars is a digital car dealership platform In Ethiopia dedicated to connecting automotive sellers and buyers.</p>
+          <div class="row">
+            <div class="col-sm-6 col-6 side-text">
+              <h3>Save Resources</h3>
+              <hr class="divider-1" />
+              <p>save valuable time and money by easily browsing around our website and getting your desired automotive</p>
+            </div>
+            <div class="col-sm-6 col-6 image-container">
+              <img class="side-image" src="../assets/images/orange-pl.jpg">
+            </div>
+            <div class="col-sm-6 col-6 image-container">
+              <img class="side-image" src="../assets/images/coinss.jpg">
+            </div>
+            <div class="col-sm-6 col-6 side-text">
+              <h3>Get a feel of the market</h3>
+              <hr class="divider-1" />
+              <p>Get a feel of the market before deciding to buy</p>
+            </div>
+            <div class="col-sm-6 col-6 side-text">
+              <h3>Easily Connect to sellers</h3>
+              <hr class="divider-1" />
+              <p>Just one click away to  get connected to the right people</p>
+            </div>
+            <div class="col-sm-6 col-6 image-container">
+              <img class="side-image" src="../assets/images/phone.jpg">
+            </div>
+          </div>
+          <div class="socials">
+            <h1>Get in touch</h1>
+            <hr class="divider" />
+            <div class="social-icons">
+              <a target="_blank" href="https://facebook.com/wabe_cars">
+                <img src="../assets/images/face.png" class="s-icon" />
+              </a>
+              <a target="_blank" href="https://www.instagram.com/wabe_cars/">
+                <img src="../assets/images/ig.png" class="s-icon" />
+              </a>
+              <a target="_blank" href="https://t.me/wabecars">
+                <img src="../assets/images/telegram.png" class="s-icon" />
+              </a>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-6">
+                <span class="email-text"><b>Email:</b> contact@wabe-cars.com</span>
+              </div>
+              <div class="col-sm-6 col-6">
+                <span class="email-text"><b>Phone:</b> 0900818154</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <br /><br /><br /><br /><br /><br />
+      <footer>
+        <div class="footer">
+          <i class="fab fa-facebook fa-2x logos"></i>
+          <i class="fab fa-twitter fa-2x logos"></i>
+          <i class="fab fa-linkedin-in fa-2x logos"></i>
+          <i class="fab fa-skype fa-2x logos"></i>
+          <i class="fab fa-google-plus-g fa-2x logos"></i>
+          <h5>2020 Wabe Cars</h5>
+          <h5>Powered by Genesis Technologies</h5>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <style>
+    .body-container {
+      margin-top: 20vh;
+    }
+    .divider{
+      margin-left: 32.5vw;
+      border-bottom: 8px solid #1b6b99  ;
+      width: 220px;
+      display: block;
+      line-height:1.6em;
+    }
+    .header-text {
+      font-size: 1.5rem;
+    }
+    .divider-1{
+      margin-left: 14vw;
+      border-bottom: 8px solid #1b6b99  ;
+      width: 140px;
+      display: block;
+      line-height:1.6em;
+    }
+    .side-image {
+      width: 40vw;
+      border-radius: 10px;
+    }
+    .side-text {
+      margin-top: 35vh;
+    }
+    .image-container {
+      margin-top: 10vh;
+    }
+    .socials {
+      margin-top: 10vh;
+    }
+    .s-icon {
+      width: 3vw;
+      margin: 3vw;
+    }
+    .email-text {
+      font-size: 1.3rem;
+    }
+    @media only screen
+      and (min-device-width: 320px)
+      and (max-device-width: 480px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        .divider{
+          margin-left: 13vw;
+          border-bottom: 8px solid #1b6b99  ;
+          width: 220px;
+          display: block;
+          line-height:1.6em;
+        }
+        .divider-1{
+          margin-left: 6vw;
+          border-bottom: 8px solid #1b6b99  ;
+          width: 100px;
+          display: block;
+          line-height:1.6em;
+        }
+        .side-image {
+          width: 40vw;
+          height: 35vh;
+          border-radius: 10px;
+        }
+        .side-text {
+          margin-top: 15vh;
+        }
+        .image-container {
+          margin-top: 10vh;
+        }
+        .s-icon {
+          width: 10vw;
+          margin: 8vw;
+        }
+      }
+  </style>
+</html>
